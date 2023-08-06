@@ -1,3 +1,18 @@
 header.header 
 	.section_in 
 		.header_main
+			.header-logo 
+				a(href="#")
+					img(src="i/logo.svg")
+					img(src="i/logo-txt.svg")
+			nav.header_nav 
+				ul 
+					each item in ['Преимущества', 'Акции', 'Услуги', 'О мастере', 'Отзывы', 'FAQ', 'Контакты']
+						li 
+							a(href="#")=item
+			.header-phone 
+				a(href="#")
+					+iconify({
+						icon: 'ri:whatsapp-fill'
+					})
+					p +7 952 099‑55‑35

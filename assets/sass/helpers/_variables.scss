@@ -1,5 +1,5 @@
 // Global 
-$header: 16.6rem;
+$header: 8.3rem;
 $footer: 50rem;
 
 // Mobile
@@ -8,11 +8,9 @@ $footer_mob: 10rem;
 
 //---------------------------------------------fonts
 $font_path: "../fonts/";
-$font_0: 'IBMPlexSans-Light', sans-serif;
-$font_1: 'IBMPlexSans-Regular', sans-serif;
-$font_2: 'IBMPlexSans-Medium', sans-serif;
-$font_3: 'IBMPlexSans-SemiBold', sans-serif;
-$font_4: 'IBMPlexSans-Bold', sans-serif;
+$font_1: 'Manrope-Light', sans-serif;
+$font_2: 'Manrope-Regular', sans-serif;
+$font_3: 'Manrope-Medium', sans-serif;
 
 $font_size_base: 1.8rem;
 //---------------------------------------------fonts###
@@ -20,7 +18,9 @@ $font_size_base: 1.8rem;
 //---------------------------------------------colors
 $white: #fff;
 $black: #000;
-$dark: #2C2C2C;
+$dark: #151515;
+
+$gold: #D7C68A;
 
 
 $trans: transparent;
@@ -28,9 +28,9 @@ $trans: transparent;
 
 
 
-$color_text_base: $dark;
-$color_link_base: $dark;
-$body_bg: $white;
+$color_text_base: $white;
+$color_link_base: $gold;
+$body_bg: $dark;
 //---------------------------------------------colors###
 
 //---------------------------------------------z-index
@@ -44,7 +44,7 @@ $z-index: (
 //---------------------------------------------z-index###
 
 //---------------------------------------------layout
-$page_width: 152rem;
+$page_width: 132rem;
 
 //---------------------------------------------layout###
 
@@ -67,9 +67,9 @@ $point_8: 320px;
 
 $input_font_size: $font_size_base;
 $input_border_color: #ccc;
-$input_border_color_active: $dark;
-$input_placeholder_color: rgba($dark, .5);
-$input_text_color: $dark;
+$input_border_color_active: $white;
+$input_placeholder_color: rgba($white, .7);
+$input_text_color: $white;
 
 
 

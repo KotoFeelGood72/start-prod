@@ -13,10 +13,10 @@ let $body,
 
 $(document).ready(function ($) {
 	$body = $('body');
-	if(devStatus) {
-		pageWidget(['index']);
-		getAllClasses('html', '.elements_list');
-	}
+	// if(devStatus) {
+	// 	pageWidget(['index']);
+	// 	getAllClasses('html', '.elements_list');
+	// }
 	modal();
 });
 
@@ -84,6 +84,24 @@ function isRemove(popup) {
 	document.body.classList.remove('fixed')
 }
 
+
+const cabiSlider = new Swiper('.cabinet-slider', {
+	loop: true,
+	freeMode: true,
+	centeredSlides: true,
+	breakpoints: {
+		480: {
+			slidesPerView: 2,
+		},
+		768: {
+			slidesPerView: 2,			
+		},
+		1024: {
+			slidesPerView: 2,
+			spaceBetween: 40,
+		},
+	}
+})
 
 
 

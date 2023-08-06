@@ -3,134 +3,219 @@ extends _layout
 block vars
 	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'HOME'}
 block content_block
-	section.hero.pb5
+	section.hero.mb10(style="background-image:url('../../i/hero.jpg');") 
 		.section_in 
-			.hero_main(style="background-image: url('i/home/hero.jpg')") 
-				.hero-content 
-					h1!='Меристемные растения <span>под заказ<span/>'
-					p Мы - лаборатория инновационного растениеводства “Меристема”.
-					ul 
-						each item in ['Высокая выживаемость растений;', 'Быстрый рост растений;', 'Большое разнообразие сортов.']
-							li=item
-	section.popular 
-		.section_in
-			.popular_main.py8.home-popular
-				+section-head({
-					tag: 2,
-					title: 'Популярные сорта'
-				}) 
-				.populart_slider--w 
-					.popular-slider.swiper
-						.swiper-wrapper
-							-for(i = 0; i < 6; i++)
-								.swiper-slide 
-									+card-popular
-						.popular-pagination
-	section.culture 
-		.section_in
-			.culture_main.py8
-				+section-head({
-					tag: 2,
-					title: 'Популярные культуры',
-					link: 'Перейти ко всем категориям'
-				}) 
-				ul.grid-culture 
-					-for(i = 0; i < 8; i++)
-						- let catTitle = ['Картофель', 'Малина', 'Ежевика', 'Голубика', 'Смородина', 'Земляника', 'Черника', 'Жимолость']
-							li.culture_item
-								a(href="#")
-									img(src=`i/culture/${i}.jpg`, alt="")
-									h3=catTitle[i]
+			.hero_main
+				h1 Студия лазерной эпиляции в Санкт-Петербурге
+				p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				+btn({
+					name: 'Оставить заявку',
+					target: 'form',
+				})
+				.hero-contacts 
+					.hero-address 
+						+iconify({
+							icon: 'solar:map-point-bold'
+						})
+						p Костромской пр-т, 10
+					span В пешей доступности от ст. метро Удельная
+	section.adv.mb16 
+		.section_in 
+			.adv_main 
+				.section-head 
+					h2 Наши приемущества
+				ul.adv-list 
+					-
+						let adv = [
+							{
+								title: 'Современное оборудование',
+								txt: 'Премиальный диодный лазер с высокоэффективной системой охлаждения, что позволяет максимально безболезненно проводить процедуру.',
+							},
+							{
+								title: 'Опытный специалист',
+								txt: 'Наличие мед. образования у специалиста, Опыт работы более 3-х лет, индивидуальный подход к каждому клиенту.',
+							},
+							{
+								title: 'Комфортное место',
+								txt: 'Удобное местоположение студии, новый чистый кабинет с удобной кушеткой.',
+							},
+						]
+					each item in adv 
+						li.adv-item 
+							h3=item.title 
+							p=item.txt 
+	section.sale.my8 
+		.section_in 
+			.sale-main 
+				.section-head 
+					h3 Акции
+				ul.sale-list 
+					-for(i = 0; i < 3; i++)
+						- let saleTitle = ['Скидка при первом посещении 50%', 'Скидка за каждый оставленный отзыв 10%', 'Скидка за приведенного клиента 15%']
+						- let salePercent = ['50', '10', '15']
+						li.sale-item
+							.sale_item--img 
+								img(src=`i/sale-${i}.jpg`, alt="")
+								.sale-percent=salePercent[i]
+							.sale_item--title 
+								h3=saleTitle[i]
+	section.complex 
+		.section_in 
+			.complex-main.py8 
+				.section-head 
+					h3 Комплексы
+				ul.complex-list 
+					-for(i = 0; i < 4; i++)
+						- let complexTitle = ['Два в одном', 'Классический', 'Полный', 'Тело полностью']
+						- let complexTxt = ['Тотальное бикини + подмышки', 'Голень + колено + пальчики ног + тотальное бикини + подмышки', 'Тотальное бикини + подмышки + ноги полностью + верхняя губа, либо линия живота', 'Все тело полностью']
+						- let complexPrice = ['1500 ₽', '2700 ₽', '3500 ₽', '3900 ₽']
+						- let complexPriceOld = ['1900 ₽', '3500 ₽', '4500 ₽', '']
+						li.complex-item 
+							.complex_item--img 
+								img(src=`i/complex-${i}.jpg`, alt="")
+							.complex_item--content 
+								h3=complexTitle[i]
+								p=complexTxt[i]
+								.complex_item--price 
+									p=complexPrice[i] 
+									span=complexPriceOld[i] 
+								.complex_item--button 
+									+btn({
+										name: 'Записаться',
+										target: 'form'
+									})
+									+btn({
+										link: 'Подробнее',
+										target: 'complex',
+										class: 'default-link'
+									})
+	section.price 
+		.section_in 
+			.price_main.py8
+				.section-head 
+					h4 Цены на лазерную эпиляцию
+				ul.price-tabLink 
+					each item, i in ['Ноги и ягодицы', 'Руки и плечи', 'Лицо и шея', 'Зона бикини', 'Тело']
+						li
+							div(data-tab=`price-${i}`)=item
+				ul.price_tabList 
+					li.priceTab_item 
+						ul.price-lists 
+							-for(i = 0; i < 4; i++)
+								- let pricesTitle = ['Бедра', 'Ягодицы', 'Голени', 'Ноги полностью', 'Подготовка к процедуре  - удаление волос триммером']
+								- let pricesNumber = ['1500 ₽', '1500 ₽', '1500 ₽', '2300 ₽', '300 ₽']
+								li.price_item 
+									p=pricesTitle[i] 
+									span=pricesNumber[i]
+									.price-link 
+										button(type="button")
+											p Записаться
+											+iconify({
+												icon: 'charm:chevron-up'
+											})
+	+app({
+		img: 'app-1',
+		title: 'Запишитесь на бесплатную консультацию'
+	})
 	section.about 
 		.section_in 
-			.about_main.my8(style="background-image: url('i/home/about.jpg')")
-				.about_content 
-					h3 О меристемных растениях
-					.txt-block 
-						p Меристемные растения - это растения, в которых основным источником роста являются меристемные ткани, которые расположены в их верхушках и боковых побегах.
-						p Эти ткани производят новые клетки, которые затем дифференцируются в различные виды тканей и органов растения. В результате меристемные растения могут расти и развиваться на протяжении всей своей жизни.
-	section.service-small 
-		.section_in
-			.service-small--main.py8
-				+section-head({
-					tag: 4,
-					title: 'Преимущества меристемных растений'
-				})
-				.serviceSmall_main
-					ul.serviceSmall_list 
-						-
-							let serviceSmall = [
-								{
-									icon: 'ion:leaf-outline',
-									title: 'Быстрый</br> размножительный путь',
-									txt: 'Имея даже одно растение можно получить  множество дубликатов'
-								},
-								{
-									icon: 'octicon:bug-24',
-									title: 'Устойчивость</br> к болезням и вредителям',
-									txt: 'Меристемы устойчивы к большинству заболеваний.'
-								},
-								{
-									icon: 'ph:coins-light',
-									title: 'Экономическая эффективность',
-									txt: 'Растения дают высокие урожаи качественных товарных плодов.'
-								},
-								{
-									icon: 'streamline:money-graph-arrow-increase-ascend-growth-up-arrow-stats-graph-right-grow',
-									title: 'Высокая адаптивность </br>и продуктивность',
-									txt: 'Растения быстрее развиваются, раньше цветут и плодоносят.'
-								},
-							]
-						each item in serviceSmall 
-							li.serviceSmall_item
-								+iconify({
-									icon: item.icon
-								})
-								h3!=item.title 
-								p=item.txt
-	section.company 
-		.section_in 
-			.company_main.py8
-				.block-img 
-					img(src="i/home/lab.jpg", alt="")
-				.block-content 
-					h4 О нашей лаборатории
-					.txt-block 
-						p Компания была создана с целью развития современных технологий в области селекции растений. Лаборатория работает с различными видами растений, включая овощные, плодовые, зерновые и декоративные.
-						p Методы, используемые лабораторией меристемных растений, основаны на культуре тканей. Это позволяет создавать новые генетически модифицированные сорта растений, которые обладают высокой устойчивостью к болезням и погодным условиям, а также более высоким урожайным потенциалом.
+			.about_main.py8 
+				.about_img 
+					img(src="i/about.jpg", alt="")
+				.about-txt 
+					h5 О специалисте
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					ul 
+						each item in ['Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi;', 'Ut enim ad minim veniam, quis nostrud ullamco laboris nisi;', 'Ut enim ad minim veniam, quis laboris nisi;']
+							li=item 
 					+btn({
-						submit: 'Оставить заявку',
+						name: 'Записаться',
 						target: 'form'
 					})
-	section.home-blog 
-		.section_in
-			.home_blog--main.pt8
-				+section-head({
-					tag: 4,
-					title: 'Наши статьи',
-					link: 'Перейти ко всем статьям'
-				}) 
-				.home-blog_main
-					ul.home-blog_list
-						-for(i = 0; i < 3; i++)
-							li
-								+post
-	section.app 
+	section.cabinet 
 		.section_in 
-			include global/app
-	section.popular 
-		.section_in
-			.popular-main.py8
-				+section-head({
-					tag: 2,
-					title: 'Лидеры заказов'
-				})
-				.populart_slider--w 
-					.popular-slider.swiper
+			.cabinet_main 
+				.section-head 
+					h6 Кабинет и оборудование
+					.cabinet-nav.section-nav 
+						.cabinet-prev 
+							+iconify({
+								icon: 'charm:chevron-up'
+							})
+						.cabinet-next 
+							+iconify({
+								icon: 'charm:chevron-up'
+							})
+				.cabinet_slider--w 
+					.cabinet-slider.swiper 
 						.swiper-wrapper
-							-for(i = 0; i < 6; i++)
+							-for(i = 0; i < 3; i++) 
 								.swiper-slide 
-									+card-popular
-						.popular-pagination
-				
-
+									.cabinet-img 
+										a(href=`i/cabinet-${i}.jpg` data-fancybox="cabinet")
+											img(src=`i/cabinet-${i}.jpg`, alt="")
+	section.faq 
+		.section_in 
+			.faq_main 
+				.section-head 
+					h6 Частые вопросы
+				ul.faq-list 
+					-for(i = 0; i < 6; i++)
+						li.faq-item 
+							.faq_item--head 
+								p Lorem ipsum dolor sit amet, consectetur adipiscing elit?
+								+iconify({
+									icon: 'charm:chevron-up'
+								})
+							.faq_item--txt 
+								p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	section.reviews 
+		.section_in 
+			.reviews_main 
+				.section-head 
+					h6 Отзывы клиентов
+					.reviews-nav.section-nav 
+						.reviews_prev 
+							+iconify({
+								icon: 'charm:chevron-up'
+							})
+						.reviews_next
+							+iconify({
+								icon: 'charm:chevron-up'
+							})
+				.reviews-slider.swiper 
+					.swiper-wrapper
+						-for(i = 0; i < 6; i++) 
+							.swiper-slide 
+								.reviews-slide 
+									a(href="i/reviews.jpg" data-fancybox="reviews")
+										img(src="i/reviews.jpg", alt="")
+	+app({
+		img: 'app-2',
+		title: 'Получите тест-драйв эпиляции подмышек в подарок!'
+	})
+	section.contacts 
+		.section_in 
+			.contacts_main
+				.contacts_info 
+					h6 Контакты
+					ul.contacts-list 
+						li 
+							span Телефон
+							a(href="tel:+79520995535") +7 952 099‑55‑35
+						li 
+							span Почта
+							a(href="mailto:mail@mail.ru") mail@mail.ru
+						li 
+							span Адрес
+							p г. Санкт-Петербург, Костромской пр-т, 10
+					ul.contacts-social 
+						each item in ['ri:whatsapp-fill', 'cib:telegram-plane']
+							li 
+								a(href="#")
+									+iconify({
+										icon: item
+									})
+				.contacts-map 
+					<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A87eaa319feb0d723c7e7e1adf53129189ddb9b2722b095b88d0b8513544e456a&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false"></script>

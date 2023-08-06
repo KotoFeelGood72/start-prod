@@ -1,0 +1,44 @@
+.popup.popup-form 
+	.popup_bg.remove 
+	.popup-main 
+		.close.remove 
+			+iconify({
+				icon: 'radix-icons:cross-1'
+			})
+		h3 Оставьте заявку
+		.popup_form--form 
+			+input({
+				place: 'Ваше имя'
+			})
+			+input({
+				place: 'Ваш телефон',
+				type: 'tel'
+			})
+			.app-bottom 
+				.app-btn 
+					+btn({
+						submit: 'Оставить заявку'
+					})
+					.form-notice!='Оставляя данные, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности</a>'
+
+.popup.popup-service 
+	.popup_bg.remove 
+	.popup_service--main.popup_main 
+		.close.remove 
+			+iconify({
+				icon: 'radix-icons:cross-1'
+			})
+		.popup_service--head 
+			h3 Два в одном
+			p Тотальное бикини + подмышки
+			span 1500 ₽
+		.popup_service--txt 
+			p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+			ul 
+				-for(i = 0; i < 5; i++)
+					li Ut enim ad minim veniam, quis nostrud exercitation;
+			p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+			p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.

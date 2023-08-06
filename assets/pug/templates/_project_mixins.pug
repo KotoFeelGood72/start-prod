@@ -1,0 +1,50 @@
+mixin btn(data)
+	.btn(class=data.class ? data.class : '' data-target=data.target ? data-target : '')
+		if data.link 
+			a(href="#")=data.link 
+		else if data.submit 
+			input(type="submit" value=data.submit ? data.submit : '')
+		else 
+			button(type="button")=data.name 
+
+
+
+mixin input(data)
+	.app-input(class=data.class ? data.class : '')
+		input(type=data.type ? data.type : data.type="text" placeholder=data.place ? data.place : data.place="Ваше имя" data-type=data.types ? data.types : '')
+		.error-message Неверно введены данные
+
+
+mixin app(data)
+	section.app.my8
+		img(src=`i/${data.img}.jpg` alt="") 
+		.section_in 
+			.app_main 
+				.app_form--w 
+					h4=data.title
+					.app-form
+						form(action="")
+							+input({
+								place: 'Ваше имя'
+							})
+							+input({
+								place: 'Ваш телефон',
+								type: 'tel'
+							})
+							.app-bottom 
+								.app-btn 
+									+btn({
+										submit: 'Оставить заявку'
+									})
+								.form-notice!='Оставляя данные, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности</a>'
+
+
+
+
+
+
+
+mixin hui(data)
+	if data.visibleTitle
+		h1=data.title
+	p=data.txt
