@@ -181,7 +181,7 @@ var plugins = {
 			server: {
 				baseDir: outputDir,
 			},
-			tunnel: '',
+			tunnel: 'arkada',
 		},
 	},
 };
@@ -414,6 +414,12 @@ let taskArray = {
 		)
 	),
 };
+
+
+gulp.task('clearCache', function (done) {
+	return cache.clearAll(done);
+});
+
 
 gulp.task('default', taskArray['development']);
 gulp.task('build', taskArray['production']);

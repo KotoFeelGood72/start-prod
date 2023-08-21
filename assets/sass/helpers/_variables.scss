@@ -20,7 +20,6 @@ $white: #fff;
 $black: #000;
 $dark: #151515;
 
-$gold: #D7C68A;
 
 
 $trans: transparent;
@@ -28,8 +27,8 @@ $trans: transparent;
 
 
 
-$color_text_base: $white;
-$color_link_base: $gold;
+$color_text_base: $dark;
+$color_link_base: $dark;
 $body_bg: $dark;
 //---------------------------------------------colors###
 
@@ -73,12 +72,4 @@ $input_text_color: $white;
 
 
 
-// Variable fonts
 
-$sm: 1.6rem;
-$md: 2rem;
-$xl: 2.3rem;
-$xl-2: 2.5rem;
-$xl-3: 3rem;
-$xl-4: 3.5rem;
-$xl-5: 4rem;

@@ -17,19 +17,3 @@
 button {
 	cursor: pointer;
 }
-
-
-
-
-
-.btn:not(.default-link) {
-	a, input[type="submit"], button {
-		@include app;
-		background-color: $gold;
-		border-radius: 1rem;
-		padding: 1.5rem 4rem;
-		font-family: $font_2;
-		color: $dark;
-		cursor: pointer;
-	}
-}
