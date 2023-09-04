@@ -1,8 +1,8 @@
 .header {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: $header;
+	// position: absolute;
+	// top: 0;
+	// left: 0;
+	// height: $header;
 	width: 100%;
 	will-change: transform;
 	@include z-index(header);
@@ -10,4 +10,16 @@
 	a {
 		color: $white
 	}
+}
+
+.header {
+}
+.section_in {
+}
+.header_main {
+	@include flex-space;
+}
+.logo {
+}
+.burger-trigger {
 }

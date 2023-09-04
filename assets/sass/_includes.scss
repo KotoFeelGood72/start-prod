@@ -15,6 +15,7 @@
 @import "templates/alert";
 @import "templates/btn";
 @import "templates/app";
+@import "templates/contacts";
 
 
 // icons
@@ -28,3 +29,5 @@
 
 // plugins
 @import "plugins/swiper";
+@import "plugins/fancybox";
+@import "plugins/nouislider";

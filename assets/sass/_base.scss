@@ -5,13 +5,13 @@
 
 html {
 	height: 100%;
-	font: 400 calc(100vw / 1920 * 10)/1.33 $font_1;
+	font: 400 calc(100vw / 1920 * 10)/1.33 $font_2;
 	
 	@include bp(1920px, $direction:min) {
 		font-size: 10px;
 	}
 	@include bp(1620px, ) {
-		font: 400 calc(100vw / 1920 * 12)/1.33 $font_1;
+		font: 400 calc(100vw / 1920 * 12)/1.33 $font_2;
 	}
 
 	@include bp($point_2) {
@@ -43,6 +43,18 @@ body {
 	@include bp($point_5) {
 		font-size: 1.6rem;
 	}
+
+	p, ul {
+		@include bp($point_4) {
+			line-height: 2.4rem;
+		}
+	}
+
+	&.fixed {
+		@include bp($point_4) {
+			overflow: hidden;
+		}
+	}
 }
 
 .wrapper {
@@ -61,13 +73,7 @@ body {
 .base {
 	width: 100%;
 	position: relative;
-	padding: $header 0 0;
-	
 	flex: 1 0 auto;
-	
-	@include bp($point_2) {
-		padding: $header_mob 0 0;
-	}
 	@include bp($point_5) {
 		overflow-x: hidden!important;
 	}

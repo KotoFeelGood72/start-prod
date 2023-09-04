@@ -17,3 +17,25 @@
 button {
 	cursor: pointer;
 }
+
+
+.btn {
+	button {
+		color: $dark;
+		padding: 4rem 6rem;
+		@include flex-center;
+		background: $yellow;
+		width: 100%;
+		p {
+			margin-bottom: 0;
+		}
+		.icons {
+			margin-left: 1rem;
+			@include flex-center;
+			width: 2.6rem;
+			height: 2.6rem;
+			margin-top: .1rem;
+			transform: rotate(90deg);
+		}
+	}
+}

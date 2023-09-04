@@ -1,5 +1,6 @@
+
 mixin btn(data)
-	.btn(class=data.class ? data.class : '' data-target=data.target ? data-target : '')
+	.btn(class=data.class ? data.class : '' data-target=data.targets ? data.targets : '')
 		if data.link 
 			a(href="#")=data.link 
 		else if data.submit 
@@ -13,8 +14,6 @@ mixin btn(data)
 					}) 
 
 
-
 mixin input(data)
 	.app-input(class=data.class ? data.class : '')
 		input(type=data.type ? data.type : data.type="text" placeholder=data.place ? data.place : data.place="Ваше имя" data-type=data.types ? data.types : '')
-		.error-message Неверно введены данные

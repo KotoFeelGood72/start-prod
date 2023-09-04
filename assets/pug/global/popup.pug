@@ -1,11 +1,11 @@
-.popup.popup-form 
+.popup.popup-form(data-id="form")
 	.popup_bg.remove 
 	.popup-main 
 		.close.remove 
 			+iconify({
-				icon: 'radix-icons:cross-1'
+				icon: 'material-symbols:close'
 			})
-		h3 Оставьте заявку
+		h3 Оставить заявку на обратный звонок
 		.popup_form--form 
 			+input({
 				place: 'Ваше имя'
@@ -15,30 +15,64 @@
 				type: 'tel'
 			})
 			.app-bottom 
-				.app-btn 
-					+btn({
-						submit: 'Оставить заявку'
-					})
-					.form-notice!='Оставляя данные, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности</a>'
+				.form-notice!='Оставляя данные, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности</a>'
+				+btn({
+					submit: 'Отправить',
+					class: 'app-btn'
+				})
 
-.popup.popup-service 
+.popup-work.popup(data-id="work") 
 	.popup_bg.remove 
-	.popup_service--main.popup_main 
-		.close.remove 
+	.popup_main.popup_work--main
+		.remove.popup_work--close 
 			+iconify({
-				icon: 'radix-icons:cross-1'
+				icon: 'material-symbols:close'
 			})
-		.popup_service--head 
-			h3 Два в одном
-			p Тотальное бикини + подмышки
-			span 1500 ₽
-		.popup_service--txt 
-			p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-			p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-			ul 
-				-for(i = 0; i < 5; i++)
-					li Ut enim ad minim veniam, quis nostrud exercitation;
-			p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-			p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-			p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-			p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+		.popup_slider--w 
+			.popup-slider.swiper 
+				.swiper-wrapper
+					-for(i = 0; i < 10; i++) 
+						.swiper-slide
+							img(src="i/popup.jpg", alt="")
+			.popup-thumb.swiper 
+				.swiper-wrapper
+					-for(i = 0; i < 10; i++) 
+						.swiper-slide
+							img(src="i/popup.jpg", alt="")
+			.popup-nav 
+				.popup-prev 
+					+iconify({
+						icon: 'ph:arrow-up-bold'
+					})
+				.popup-next
+					+iconify({
+						icon: 'ph:arrow-up-bold'
+					})
+		.popup-content 
+			h3 Название проекта
+			.popup-params 
+				ul 
+					li 
+						p Метраж:
+						span 36 м2
+					li 
+						p Стоимость ремонта:
+						span 50 000 рублей за м2 (бюджет полностью с мебелью)
+			.popup-txt
+				p Выполнили ремонт квартиры в ЖК 123 в современном лофт-стиле для инвестора.Получилась двушка с изолированной спальней, полноценной кроватью, вместительным шкафом купе, зал с кухней, минимум перегородок и много мест для хранения.Отличный санузел с большой душевой кабиной.На полу использовали плитку из керамогранита с подогревом.Стены покраска, фотообои.Натяжной потолок с нишами под шторы с подсветкой.Полностью укомплектовали мебелью и техникой.Квартира ушла покупателям с первых просмотров, инвест проект принёс инвестору хорошую прибыль.
+			.popup_form--w
+				h4 Хотите ремонт по высшему разряду? Оставьте нам заявку, свяжемся с вами как можно скорее:
+				.popup-forms 
+					+input({
+							name: 'Имя'
+						})
+					+input({
+							name: 'Имя',
+							type: 'tel'
+						})
+					+btn({
+						name: 'Отправить',
+						icon: false,
+					})
+				.form-notice!='Отправляя заявку вы соглашаетесь на обработку своих персональных данных и принимаете <a href="#" target="_blank">Политику конфиденциальности</a>'
+

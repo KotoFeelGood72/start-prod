@@ -4,43 +4,420 @@ block vars
 	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'HOME'}
 block content_block
 	section.hero
-		.section_in 
-			.hero_main
+		.hero_main
+			.hero_main--content 
 				include global/header
-				.hero-quiz
-					.step-titul 
-							h1 Узнайте стоимость ремонта по Вашим параметрам всего за 1 минуту
-							p Получите сертификат на ремонт вашей квартиры
-							span 25 000₽
-							+btn({
-								name: 'Рассчитать стоимость ремонта',
-								icon: true
-							})
-					.quiz-pagination
-					ul.quiz-steps
-						li.quiz-step
-							.quiz-step--title 
-								h3 Где планируете провести ремонт?
-							ul.quiz_check--list
-								- let whatBuild = ['Квартира, новостройка', 'Квартира, вторичное жильё', 'Частный дом / коттедж', 'Другое'] 
-								-for(i = 0; i < whatBuild.length; i++)
+				.burger.popup(data-id="burger")
+					.popup_bg.remove 
+					.popup_main.burger-main 
+						.burger-close.remove 
+							img(src="i/close.svg", alt="")
+						nav.burger-menu
+							ul 
+								each item in ['О нас', 'Наши проекты', 'Этапы работы', 'Видео', 'Команда', 'Ответы на вопросы', 'Контакты']
+									li 
+										a(href="#")=item
+						ul.burger-contacts 
+							li 
+								a(href="#")
+									.phone-icon 
+										+iconify({
+											icon: 'fluent:call-20-regular',
+										})
+									p 8 988 401 11 91
+							li 
+								a(href="#")
+									.phone-icon 
+										+iconify({
+											icon: 'fa6-brands:vk',
+										})
+									p club171559736
+							li 
+								a(href="#")
+									.phone-icon 
+										+iconify({
+											icon: 'grommet-icons:instagram',
+										})
+									p blagoustroi23.ru
+				.hero-card
+					.hero_card--head 
+						h1!='<span>Комплексный</span> ремонт квартир, домов, отелей'
+						h2 и других видов недвижимости
+					.hero_card--body 
+						ul
+							-
+								let heroCard = [
+									{
+										title: 'Экономим деньги',
+										txt: 'Закупаем черновые и чистовые материалы, мебель и технику с оптовыми скидками как строительная организация.',
+										icon: 'fluent:wallet-credit-card-16-filled',
+									},
+									{
+										title: 'Бережем нервы',
+										txt: 'Все процессы по закупке материалов, согласованию с мастерами, управляющими компаниями берём на себя.',
+										icon: 'material-symbols:sentiment-calm-outline-rounded',
+									},
+									{
+										title: 'Сохраняем время',
+										txt: 'За счёт большого опыта помогаем найти правильные планировочные, технические решения и воплощаем их в реальность.',
+										icon: 'ion:hourglass-outline',
+									},
+								]
+							each item in heroCard 
+								li
+									+iconify({
+											icon: item.icon
+										})
+									.list_item--content 
+										p=item.title
+										span=item.txt
+			.hero-quiz
+				.step-titul 
+					h2 Узнайте стоимость ремонта по Вашим параметрам всего за 1 минуту
+					p Получите сертификат на ремонт вашей квартиры
+					span 25 000₽
+					+btn({
+						name: 'Рассчитать стоимость ремонта',
+						icon: true,
+						class: 'start-quiz'
+					})
+				.quiz-pagination
+					p.current-step
+					span.all-step
+				ul.quiz-steps
+					li.quiz-step
+						.quiz-step--title 
+							h3 Где планируете провести ремонт?
+						ul.quiz_check--list
+							- let whatBuild = ['Квартира, новостройка', 'Квартира, вторичное жильё', 'Частный дом / коттедж', 'Другое'] 
+							-for(i = 0; i < whatBuild.length; i++)
+								if i === 1
+									li 
+										input(type="radio" name="whatBuild" id=`what-build-${i}` checked)
+										label(for=`what-build-${i}`)=whatBuild[i]
+								else 
 									li 
 										input(type="radio" name="whatBuild" id=`what-build-${i}`)
 										label(for=`what-build-${i}`)=whatBuild[i]
-						li.quiz-step
-							.quiz-step--title 
-								h3 Какая примерная площадь ремонтируемого помещения?
-							.quiz_input--slider 
-								label(for="quiz-slider") Площадь, м2
-								input 
-					.quiz-nav 
-						.quiz-prev
+					li.quiz-step
+						.quiz-step--title 
+							h3 Какая примерная площадь ремонтируемого помещения?
+						.quiz_input--sliderWrapper
+							label(for="quiz-slider") Площадь, м2
+							.quiz_input--slider
+								input(type="range" name="data" value="20")
+					li.quiz-step
+						.quiz-step--title 
+							h3 Какой ремонт рассматриваете?
+						ul.quiz_checkImg--list
+							- let remont = ['Ремонт ванной комнаты', 'Косметический ремонт', 'Черновой ремонт', 'Ремонт квартиры “под ключ”', 'Нужна консультация'] 
+							-for(i = 0; i < remont.length; i++)
+								if i === 2
+									li 
+										input(type="radio" name="remontBuild" id=`remont-build-${i}`)
+										label(for=`remont-build-${i}`)
+											.check-img 
+												img(src=`i/check-${i}.jpg` alt="")
+											p=remont[i]
+											span (стяжка пола, штукатурка, возведение перегородок, электрика, сантехника)
+								else
+									li
+										input(type="radio" name="remontBuild" id=`remont-build-${i}`)
+										label(for=`remont-build-${i}`)
+											.check-img 
+												img(src=`i/check-${i}.jpg` alt="")
+											p=remont[i]
+					li.quiz-step
+						.quiz-step--title 
+							h3 У вас уже есть дизайн проект?
+						ul.quiz_check--list
+							- let design = ['Да, есть', 'Нет, но планирую заказать', 'Нужна консультация дизайнера', 'Нет, не нужен'] 
+							-for(i = 0; i < design.length; i++)
+								if i === i 
+									li 
+										input(type="radio" name="designBuild" id=`design-build-${i}` checked)
+										label(for=`design-build-${i}`)=design[i]
+								else 
+									li 
+										input(type="radio" name="designBuild" id=`design-build-${i}`)
+										label(for=`design-build-${i}`)=design[i]
+					li.quiz-step
+						.quiz-step--title 
+							h3 Как скоро планируете приступить к ремонту?
+						ul.quiz_check--list
+							- let times = ['В течении недели', 'В этом месяце', 'В течении полугода', 'Нужна консультация'] 
+							-for(i = 0; i < times.length; i++)
+								if i === i 
+									li 
+										input(type="radio" name="timesBuild" id=`times-build-${i}` checked)
+										label(for=`design-build-${i}`)=times[i]
+								else 
+									li 
+										input(type="radio" name="timesBuild" id=`times-build-${i}`)
+										label(for=`design-build-${i}`)=times[i]
+					li.quiz-step
+						.quiz-step--title 
+							h3 Куда Вам отправить расчёт стоимости ремонта?
+						ul.quiz_check--list
+							- let infoDevice = ['WhatsApp', 'СМС', 'Бесплатная консультация по телефону. Хочу узнать подробнее об акциях, которые сейчас проходят'] 
+							-for(i = 0; i < infoDevice.length; i++)
+								if i === i 
+									li 
+										input(type="radio" name="infoBuild" id=`info-build-${i}` checked)
+										label(for=`info-build-${i}`)=infoDevice[i]
+								else 
+									li 
+										input(type="radio" name="infoBuild" id=`info-build-${i}`)
+										label(for=`info-build-${i}`)=infoDevice[i]
+					li.quiz-step
+						.quiz-step--title 
+							h3 Введите номер, на который Вам отправить расчёт:
+						.quiz_item--content 
+							p За этим номером мы закрепим сертификат на 25.000₽
+							.quiz_default--input 
+								input(type="text" placeholder="Номер телефона")
+							.quiz-notice!='Отправляя заявку вы соглашаетесь на обработку своих персональных данных и принимаете <a href="#" target="_blank">Политику конфиденциальности</a>'
+					li.quiz-step
+						.thanks 
+							h3 Спасибо! Заявка принята
+							p Менеджер скоро свяжется с вами
+							+btn({
+								icon: true,
+								name: 'На сайт'
+							})
+				.quiz-nav 
+					.quiz-prev
+						button(type="button")
 							+iconify({
 								icon: 'ph:arrow-up-bold'
 							})
-						.quiz-next
-							+btn({
-								icon: true,
-								name: 'Далее'
-							})
+					.quiz-next
+						+btn({
+							icon: true,
+							name: 'Далее'
+						})
+	section.advantages 
+		.section_in 
+			.advantages_main 
+				ul.adv_list 
+					-
+						let adv = [
+							{
+								title: 'Большой опыт мастеров',
+								list: [
+									{
+										txt: '<span>Опыт в сфере около 20 лет</span> и хорошая репутация в связи со множеством успешно выполненных проектов от простых до премиальных',
+										icon: 'medal',
+									},
+									{
+										txt: 'В нашей команде <span>проверенные мастера</span> своего дела с многолетним стажем работы',
+										icon: 'engineer',
+									},
+								]
+							},
+							{
+								title: 'Контролируем сами',
+								list: [
+									{
+										txt: 'Многоступенчатый своевременный <span>контроль</span> со стороны прораба <span>и технический надзор</span> по выполняемым работам',
+										icon: 'clipboard',
+									},
+									{
+										txt: '<span>Видеонаблюдение на объектах,</span> бесключевой доступ через цифровые замки для безопасности.',
+										icon: 'surveillance',
+									},
+									{
+										txt: '<span>Мы работаем - вы отдыхаете!</span> Большой опыт выполненных объектов с удалённым участием заказчика. Обсуждение и принятие решений ведётся в общих чатах.',
+										icon: 'vacation',
+									},
+								]
+							},
+							{
+								title: 'Высокое качество',
+								list: [
+									{
+										txt: 'Упор компании на <span>качественный, современный ремонт</span> с использованием новых технологий и материалов. Строим на века!',
+										icon: 'trowel',
+									},
+									{
+										txt: 'Мы предоставляем <span>качество,</span> которого вы достойны <span>и надёжность,</span> на которую вы можете рассчитывать!',
+										icon: 'exam',
+									},
+								]
+							},
+						]
+					each item in adv
+						li.adv_item 
+							.adv_item--head 
+								h3=item.title 
+							.adv_item--body 
+								ul 
+									each subitem in item.list 
+										li.subitem_adv 
+											.icon 
+												img(src=`i/${subitem.icon}.png`)
+											.subitem_adv--txt!=subitem.txt
+		.adv-bg 
+			img(src="i/bg-adv.png")
+	section.about 
+		.section_in 
+			.about_main 
+				.about_content 
+					h3 Основатель и руководитель организации Благоустрой — Борисов Максим Сергеевич
+					p Прошёл путь от помощника мастера, мастера - универсала, прораба, эксперта в сфере ремонта и строительства, основателя ремонтно-строительной организации.
+					p Имею реальный собственный опыт ремонта помещений под ключ, благодаря этому правильно подбираю специалистов и веду надзор за проектами.
+				.about-img 
+					img(src="i/about.jpg", alt="")
+				.about_people 
+					img(src="i/about-people.png", alt="")
+	section.work 
+		.section_in 
+			.work_head 
+				h3!='Более  <span> 1080 </span>  проектов'
+				p вот некоторые из них:
+				.work-nav 
+					.work-prev 
+						+iconify({
+							icon: 'ph:arrow-up-bold'
+						})
+					.work-next 
+						+iconify({
+							icon: 'ph:arrow-up-bold'
+						})
+			.work_slider--w 
+				.work-slider.swiper 
+					.swiper-wrapper
+						-for(i = 0; i < 10; i++) 
+							.swiper-slide 
+								.work-slide.trigger(data-target="work")
+									.work_slide--main
+										.work_slide--img 
+											img(src="i/work-slide.jpg", alt="")
+										.work_slide--content 
+											h3 Название проекта
+											ul.work_slideContent--params 
+												li 
+													p Метраж:
+													span 36 м2
+												li 
+													p Стоимость ремонта:
+													span 50 000 рублей за м2 (бюджет полностью с мебелью)
+									.work_slide--link.trigger(data-target="trigger")
+										p Посмотреть проект
+										+iconify({
+												icon: 'ph:arrow-up-bold'
+											})
+				.work-pagination
+	section.order 
+		.order_main
+			ul.order-list
+				- let orderTitle = ['Этап 1: Оставьте заявку', 'Этап 2: Выезд прораба', 'Этап 3: Разработка дизайн-проекта', 'Этап 4: Демонтажные работы', 'Этап 5: Составление сметы', 'Этап 6: Черновые работы', 'Этап 7: Чистовые работы', 'Этап 8: Клининг', 'Этап 9: Комплектация', 'Этап 10: Доведение деталей по объекту, сдача заказчику']
+				- let orderTxt = ['Наш специалист свяжется с вами по телефону. Обсудим все детали и пожелания.', 'Прораб произведет замер помещения, познакомится с проектом поближе, уточнит все детали работы непосредственно на объекте.', 'Виды проекта - чертежи Лайт, чертежи и мудборд, полный проект с 3D визуализацией.', 'Если вторичное жильё или реконструкция помещения', 'Lorem ipsum dolor sit amet consectetur. Sagittis blandit est urna congue feugiat arcu sit. Habitant ac non feugiat faucibus neque habitant suspendisse.', 'Lorem ipsum dolor sit amet consectetur. Sagittis blandit est urna congue feugiat arcu sit. Habitant ac non feugiat faucibus neque habitant suspendisse.', 'Lorem ipsum dolor sit amet consectetur. Sagittis blandit est urna congue feugiat arcu sit. Habitant ac non feugiat faucibus neque habitant suspendisse.', 'Lorem ipsum dolor sit amet consectetur. Sagittis blandit est urna congue feugiat arcu sit. Habitant ac non feugiat faucibus neque habitant suspendisse.', 'Комплектация, сборка и установка мебели и техники.', 'Lorem ipsum dolor sit amet consectetur. Sagittis blandit est urna congue feugiat arcu sit. Habitant ac non feugiat faucibus neque habitant suspendisse.']
+				-for(i = 0; i < orderTitle.length; i++)
+					li.order-item 
+						if i === 0
+							.order_item--content 
+								h3=orderTitle[i]
+								p=orderTxt[i]
+								.order-forms
+									.order-input 
+										input(type="text" placeholder="Ваше имя")
+									.order-input 
+										input(type="tel" placeholder="Ваш телефон")
+									.order-btn 
+										input(type="submit", value="Отправить")
+								.form-notice!='Отправляя заявку вы соглашаетесь на обработку своих персональных данных и принимаете <a href="#" target="_blank">Политику конфиденциальности</a>'
+							.order_item--img 
+								img(src=`i/order-${i}.jpg`, alt="")
+						else if i === 9
+							.order_item--content
+								h3=orderTitle[i]
+								p=orderTxt[i]
+								+btn({
+									icon: false,
+									name: 'Хочу ремонт',
+									class: 'trigger',
+									targets: 'form',
+								})
+							.order_item--img 
+								img(src=`i/order-${i}.jpg`, alt="")
+						else 
+							.order_item--content 
+								.order_itemContent--txt
+									h3=orderTitle[i]
+									p=orderTxt[i]
+							.order_item--img 
+								img(src=`i/order-${i}.jpg`, alt="")
+	section.video 
+		.section_in 
+			.video_main 
+				h4!='Lorem  <span>ipsum</span>  dolor sit amet consectetur'
+				p Lorem ipsum dolor sit amet consectetur
+				ul.video-list 
+					-for(i = 0; i < 3; i++)
+						li.video-item 
+							a(href=`https://www.youtube.com/watch?v=JoqgSPoWhMs&list=RDJoqgSPoWhMs&start_radio=1` data-fancybox)
+								img(src=`i/video-${i}.jpg`, alt="")
+								+iconify({
+									icon: 'mdi:play-speed'
+								})
+	section.team 
+		.section_in 
+			.team_main 
+				h4!='Сработанная <span>ответственная</span> команда'
+				ul.team-list 
+					li.team-item.violet
+						.team_item--img 
+							img(src="i/team-0.jpg", alt="")
+						.team_item--content 
+							.team_item--name 
+								p Хохлов Павел - наш руководитель ремонтно-строительных проектов
+							.team_item--txt 
+								p Прошёл путь от помощника мастера, мастера-универсала, прораба, эксперта в сфере ремонта и строительства, основателя ремонтно-строительной организации. Имею реальный собственный опыт ремонта помещений под ключ, благодаря этому правильно подбираю специалистов и веду надзор за проектами. Масштабирую организацию и строю вектор движения всей команды.
+								p Опытный руководитель на строительных участках, с большим стажем ведения различных проектов. Ведёт контроль по:
+								ul
+									li Выполнению работ мастерами
+									li Поставке и отчётности по материалам
+									li Составлению смет
+									li Безопасности и порядку на объектах
+					li.team-item.yellow
+						.team_item--img 
+							img(src="i/team-1.jpg", alt="")
+						.team_item--content 
+							.team_item--name 
+								p Матина Анастасия - дизайнер проектов
+							.team_item--txt 
+								p Креативные и красивые вещи всегда привлекали моё внимание. Целеустремленная, жизнерадостная, с любовью и трепетом подхожу к созданию интерьера вашей мечты. Занимаюсь разработкой дизайн проектов, архитектурным дизайном.
+								p Цель - создать дизайн интерьера, уникальный для каждого клиента. Основной принцип работы - создавать проекты вне времени.
+								p Опыт работы с реальными объектами позволяет мне создавать дизайн проекты любой сложности. От малогабаритных квартир до коттеджей и домов. Создаю для вас функциональные, эстетически приятные для глаз пространства. Комфортный и уютный интерьер.
+								span.small-txt Окончила Российский Профессионально Педагогический Университет по специальности ”Дизайнер Интерьеров“. Участвовала в различных международных и всероссийских конкурсах. С 2014 года занимаюсь проектированием частных и общественных интерьеров в Сочи и других городах России.
+					li.team-item.yellow
+						.team_item--img 
+							img(src="i/team-2.jpg", alt="")
+						.team_item--content 
+							.team_item--name 
+								p Матина Анастасия - дизайнер проектов
+							.team_item--txt 
+								p Креативные и красивые вещи всегда привлекали моё внимание. Целеустремленная, жизнерадостная, с любовью и трепетом подхожу к созданию интерьера вашей мечты. Занимаюсь разработкой дизайн проектов, архитектурным дизайном.
+								p Цель - создать дизайн интерьера, уникальный для каждого клиента. Основной принцип работы - создавать проекты вне времени.
+								p Опыт работы с реальными объектами позволяет мне создавать дизайн проекты любой сложности. От малогабаритных квартир до коттеджей и домов. Создаю для вас функциональные, эстетически приятные для глаз пространства. Комфортный и уютный интерьер.
+								span.small-txt Окончила Российский Профессионально Педагогический Университет по специальности ”Дизайнер Интерьеров“. Участвовала в различных международных и всероссийских конкурсах. С 2014 года занимаюсь проектированием частных и общественных интерьеров в Сочи и других городах России.
+	section.faq 
+		.section_in 
+			h4 Ответы на часто задаваемые вопросы
+			.faq_main
+				ul.faq_list
+					- let faqHead = ['Lorem ipsum dolor sit amet consectetur?', 'Lorem ipsum dolor sit amet consectetur. In massa ultrices scelerisque integer?', 'Lorem ipsum dolor sit amet consectetur. In massa ultrices scelerisque integer turpis dolor. Fringilla est risus metus bibendum ullamcorper?', 'Lorem ipsum dolor sit amet consectetur. In massa ultrices scelerisquer?', 'Lorem ipsum dolor sit amet consectetur?']
+					-for(i = 0; i < faqHead.length; i++)
+						li.faq-item 
+							.faq_item--head 
+								h3=faqHead[i]
+								.faq_item--control 
+									+iconify({
+										icon: 'material-symbols:close'
+									})
+							.faq_item--content
+								p Lorem ipsum dolor sit amet consectetur. In massa ultrices scelerisque integer turpis dolor. Fringilla est risus metus bibendum ullamcorper. Orci ipsum gravida ullamcorper nibh dui. Ultricies consequat pretium mattis orci scelerisque nisi cras duis. Laoreet vitae turpis enim dignissim id sem. Tortor turpis pulvinar massa mi volutpat placerat massa. Nec tellus...
+				.faq-img 
+					img(src="i/faq.png", alt="")
 

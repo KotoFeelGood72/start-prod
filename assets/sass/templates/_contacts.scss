@@ -1,0 +1,172 @@
+.contacts {
+}
+.contacts_main {
+}
+.contacts_card--w {
+}
+.contacts_card {
+}
+.contacts_info {
+	@include bp(1250px) {
+		font-size: 2.2rem;
+	}
+
+	@include bp($point_2) {
+		font-size: 1.8rem;
+	}
+}
+.icons {
+}
+.fluent:call--regular {
+}
+.iconify {
+}
+.ant-design:mail-outlined {
+}
+.ep:location {
+}
+.contacts-social {
+
+	li {
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+		a {
+			@include flex-start;
+			color: $violet;
+			font-family: $font_3;
+			.icons {
+				width: 2rem;
+				font-size: 2rem;
+				@include flex-center;
+				margin-right: 1rem;
+			}
+		}
+	}
+}
+.fa-brands:vk {
+}
+.grommet-icons:instagram {
+}
+.contacts_btn {
+}
+
+.contacts {
+	position: relative;
+	height: 63.3rem;
+}
+
+.contacts_card {
+	max-width: 33.9rem;
+	@include bp(1250px) {
+		max-width: 80%;
+	}
+
+	@include bp($point_4) {
+		max-width: 100%;
+	}
+}
+.contacts_card--w {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 23.7rem;
+	background-color: $white;
+	font-size: 1.5rem;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
+	@include bp(1250px) {
+		left: 8rem;
+	}
+
+	@include bp($point_4) {
+		left: 50%;
+		transform: translate(-50%, -50%);
+		max-width: 95%;
+	}
+}
+
+.contacts_card {
+	padding: 4.5rem;
+	@include bp($point_4) {
+		padding: 2rem;
+	}
+
+	h5 {
+		font-size: 2.4rem;
+		font-family: $font_4;
+		margin-bottom: 2.6rem;
+	}
+}
+
+.contacts_btn {
+	width: 100%;
+	button {
+		padding: 2.3rem 9rem;
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		font-family: $font_4;
+		background: $violet;
+		width: 100%;
+		color: $white;
+	}
+}
+
+.contacts_info {
+	padding-bottom: 3rem;
+	border-bottom: .1rem solid #FAFAFA;
+	margin-bottom: 3rem;
+	li {
+		@include flex-start;
+		align-items: flex-start;
+		&:not(:last-child) {
+			margin-bottom: 2.1rem;
+		}
+
+		.icons {
+			width: 2.6rem;
+			height: 2.6rem;
+			@include flex-center;
+			margin-right: 0.6rem;
+		}
+
+		&:nth-child(1) {
+			font-family: $font_4;
+
+			.icons {
+				font-size: 2.6rem;
+			}
+		}
+		
+		&:nth-child(2) {
+			a {
+
+				p {
+					color: $violet;
+					border-bottom: .1rem solid $violet;
+					line-height: 100%;
+					&:hover {
+						opacity: .7;
+					}
+				}
+				
+				.icons {
+					font-size: 1.8rem;
+					color: $violet;
+				}
+			}
+		}
+		
+		&:nth-child(3) {
+			
+			
+			.icons {
+				font-size: 2.2rem;
+			}
+		}
+		a {
+			@include flex-start;
+		}
+	}
+}

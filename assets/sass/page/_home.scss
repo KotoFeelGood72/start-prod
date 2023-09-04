@@ -1,0 +1,1832 @@
+.hero {
+	position: relative;
+	z-index: 1;
+	color: $white;
+}
+.section_in {
+}
+.hero_main {
+	@include flex-start;
+	align-items: flex-start;
+	height: 109.5rem;
+	overflow: hidden;
+	@include bp(1420px) {
+		max-height: 95rem;
+		height: 100%;
+	}
+
+	@include bp($point_2) {
+		flex-direction: column;
+		max-height: 100%;
+	}
+}
+.hero_main--content {
+	padding: 9rem 13rem 14rem 20rem;
+	position: relative;
+	z-index: 2;
+	// max-width: 109.1rem;
+	@include flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+	flex-grow: 1;
+	height: 100%;
+	
+	@include bp($point_2) {
+		max-width: 100%;
+		padding: 10rem;
+	}
+	
+	@include bp($point_4) {
+		padding: 2rem;
+
+	}
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		content: '';
+		background: $dark;
+		opacity: .2;
+	}
+
+	&:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		content: '';
+		background: $dark;
+		background: url('../../i/hero.jpg') center/cover no-repeat;
+		z-index: -1;
+	}
+}
+.header {
+
+	.section_in {
+		@include bp($point_4) {
+			padding: 0;
+		}
+	}
+}
+.header_main {
+	margin-bottom: 9rem;
+	position: relative;
+	z-index: 4;
+	@include bp($point_4) {
+		margin-bottom: 7rem;
+	}
+	.logo {
+		max-width: 37.2rem;
+		a {
+			display: block;
+			width: 100%;
+		}
+		@include bp($point_4) {
+			max-width: 20rem;
+		}
+	}
+}
+.logo {
+}
+.burger-trigger {
+	width: 4rem;
+	height: 3rem;
+	position: relative;
+	display: block;
+
+	cursor: pointer;
+	span {
+		position: absolute;
+		width: 100%;
+		border-bottom: .3rem solid $white;
+		&:nth-child(1) {
+			top: 0;
+			left: 0;
+		}
+		&:nth-child(2) {
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+		}
+		&:nth-child(3) {
+			bottom: 0;
+			left: 0;
+		}
+	}
+}
+.hero-card {
+	position: relative;
+	z-index: 2;
+}
+
+.work-pagination {
+	display: none;
+	@include bp($point_4) {
+		display: flex;
+		justify-content: center;
+		bottom: -5rem!important;
+	}
+
+	.swiper-pagination-bullet {
+		background-color: $violet;
+	}
+}
+.hero_card--head {
+	background: $violet;
+	padding: 5.5rem;
+
+	@include bp(1540px) {
+		padding: 3rem 2rem;
+	}
+	
+
+	h1 {
+		font-size: 4.4rem;
+		font-family: $font_5;
+		margin-bottom: 1.3rem;
+		line-height: 120%;
+
+		@include bp(1540px) {
+			font-size: 3.2rem;
+		}
+		span {
+			color: $yellow;
+		}
+	}
+
+	h2 {
+		font-size: 3.4rem;
+		font-family: $font_5;
+		@include bp(1540px) {
+			font-size: 2.4rem;
+		}
+	}
+}
+.hero_card--body {
+	background: rgba(255, 255, 255, 0.80);
+	backdrop-filter: blur(3.5px);
+	color: $dark;
+	padding: 4rem 5rem;
+
+	@include bp(1540px) {
+		padding: 3rem 2rem;
+	}
+
+
+	.icons {
+		width: 3.4rem;
+		height: 3.4rem;
+		@include flex-center;
+		color: $violet;
+		font-size: 3.4rem;
+		margin-right: 1.5rem;
+	}
+	ul {
+		li {
+			@include flex-start;
+			align-items: flex-start;
+
+			font-size: 1.5rem;
+
+			@include bp($point_4) {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			
+
+			.icons {
+				@include bp($point_4) {
+					margin-bottom: 2rem;
+				}
+			}
+			@include bp(1250px) {
+				font-size: 1.8rem;
+			}
+			&:not(:last-child) {
+				margin-bottom: 4rem;
+			}
+			p {
+				text-transform: uppercase;
+				font-family: $font_4;
+				margin-bottom: 0.7rem;
+
+			}
+		}
+	}
+}
+.icon {
+}
+.icons {
+}
+.fluent:wallet-credit-card--filled {
+}
+.iconify {
+}
+.list_item--content {
+}
+.material-symbols:sentiment-calm-outline-rounded {
+}
+.ion:hourglass-outline {
+}
+.hero-quiz {
+	background: url('../../i/hero-quiz.jpg') center/cover no-repeat;
+	width: 100%;
+	max-width: 88.2rem;
+	height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	flex-grow: 1;
+	height: 100%;
+	
+	&.active {
+		background: url('../../i/active-quiz.jpg') center/cover no-repeat;
+	}
+	&.end-quiz {
+		background: url('../../i/hero-quiz.jpg') center/cover no-repeat;
+	}
+
+	@include bp($point_2) {
+		max-width: 100%;
+		min-height: 50rem;
+	}
+
+	@include bp($point_4) {
+		padding: 2rem;
+	}
+
+
+	&.active {
+
+		.step-titul {
+			display: none;
+		}
+		.quiz-steps {
+			display: block!important;
+		}
+		.quiz-nav {
+			display: flex;
+		}
+	}
+}
+.step-titul {
+	width: 100%;
+	height: 100%;
+	@include flex-center;
+	text-align: center;
+	flex-direction: column;
+	padding: 24rem 0 15.5rem 0;
+
+	@include bp(1540px) {
+		padding: 13rem 0;
+	}
+	h2 {
+		font-size: 4.4rem;
+		font-family: $font_5;
+		max-width: 45.8rem;
+		margin: 0 auto;
+
+		@include bp($point_2) {
+			font-size: 3rem;
+			max-width: 50rem;
+		}
+		&:after {
+			content: '+';
+			display: block;
+			margin-bottom: 1rem;
+		}
+	}
+
+	p {
+		font-size: 2.4rem;
+		font-family: $font_4;
+		max-width: 35.7rem;
+		margin: 0 auto 1rem auto;
+	}
+
+	span {
+		font-size: 4.4rem;
+		font-family: $font_5;
+		display: block;
+		margin-bottom: 9.5rem;
+	}
+
+	.btn {
+		display: inline-flex;
+		p {
+			max-width: 100%;
+		}
+	}
+}
+
+.start-quiz {
+	button {
+		color: $dark;
+		@include bp($point_2) {
+			padding: 3rem 2rem;
+		}
+
+		.icons {
+			@include bp($point_4) {
+				display: none;
+			}
+		}
+		p {
+			@include bp($point_4) {
+				font-size: 2rem;
+			}
+		}
+	}
+}
+.btn {
+}
+.ph:arrow-up-bold {
+}
+.quiz-pagination {
+
+	position: absolute;
+	top: 13.3rem;
+	left: 13.3rem;
+	@include flex-start;
+	align-items: flex-end;
+
+	@include bp(1420px) {
+		top: 10rem;
+		right: 10rem;
+	}
+
+	@include bp($point_4) {
+		top: auto;
+		left: auto;
+		right: 5rem;
+		bottom: 5.5rem;
+	}
+
+	display: none;
+	p {
+		font-size: 4.4rem;
+		font-family: $font_5;
+		line-height: 120%;
+		margin-right: 0.5rem;
+	}
+	span {
+		display: block;
+		font-size: 2.4rem;
+		font-family: $font_4;
+		margin-bottom: 0.3rem;
+		&:before {
+			content: '/ ';
+		}
+	}
+}
+.quiz-steps {
+	display: none;
+	padding: 23.6rem 13.3rem 6rem 13.3rem;
+	width: 100%;
+	
+	@include bp(1420px) {
+		padding: 20rem 10rem 5rem 10rem;
+	}
+
+	@include bp($point_4) {
+		padding: 5rem 2rem;
+	}
+
+	&>li {
+		display: none;
+	}
+}
+.quiz-step {
+}
+.quiz-step--title {
+	max-width: 60rem;
+	text-align: left;
+	margin-bottom: 5rem;
+	@include bp(1540px) {
+		max-width: 50rem;
+	}
+	h3 {
+		font-size: 3.4rem;
+		font-family: $font_5;
+
+		@include bp(1540px) {
+			font-size: 3rem;
+		}
+
+		@include bp($point_4) {
+			font-size: 2.4rem;
+		}
+	}
+}
+.quiz_check--list {
+	text-align: left;
+
+	li {
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+		input {
+			display: none;
+			&:checked + label:after {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(-50%);
+				top: 50%;
+			}
+		}
+
+		label {
+			position: relative;
+			padding-left: 4.5rem;
+			cursor: pointer;
+			display: block;
+			&:before {
+				width: 3rem;
+				height: 3rem;
+				border: .2rem solid $white;
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				top: 55%;
+				transform: translateY(-50%);
+				width: 1.5rem;
+				height: 1.5rem;
+				background-color: $white;
+				left: .8rem;
+				opacity: 0;
+				visibility: hidden;
+				transition: all .3s ease;
+			}
+		}
+	}
+}
+.quiz_input--sliderWrapper {
+	@include flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-bottom: 5rem;
+	
+	.noUi-horizontal {
+		height: .3rem!important;
+		background-color: $white;
+
+	}
+	.noUi-value {
+		@include bp($point_4) {
+			font-size: 1.2rem!important;
+		}
+	}
+	.noUi-connects {
+		background-color: rgba(255, 255, 255, 0.500);
+		border-radius: 0;
+	}
+	.noUi-connect {
+		background-color: #fff;
+	}
+
+	.noUi-target {
+		border: none;
+		background: $trans;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+
+	.noUi-marker {
+		display: none;
+	}
+	.noUi-pips {
+		color: $white;
+		font-size: 1.5rem;
+		font-family: $font_4;
+	}
+	.noUi-pips-horizontal {
+		margin: 0;
+		height: auto;
+	}
+	.noUi-horizontal .noUi-handle {
+		width: 1.4rem;
+		height: 1.4rem;
+		border-radius: 100%;
+		cursor: grab;
+		background: $yellow;
+		border: none;
+		box-shadow: none;
+		right: -0.7rem;
+
+		&:before, &:after {
+			display: none;
+		}
+	}
+
+	label {
+		font-size: 1.5rem;
+		font-family: $font_4;
+		display: block;
+		margin-bottom: 2rem;
+	}
+
+
+
+	.quiz_input--slider {
+		width: 100%;
+	}
+	input {
+		display: none
+	}
+}
+.quiz_checkImg--list {
+
+	@include flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	margin: -.5rem -2rem 0 0;
+	.check-img {
+		margin-bottom: 1rem;
+		width: 100%;
+	}
+	li {
+		max-width: 19rem;
+		padding: .5rem 2rem 0 0;
+		width: 100%;
+
+		span {
+			@include bp($point_4) {
+				display: none;
+			}
+		}
+		p {
+			line-height: 120%;
+		}
+		@include bp(1420px) {
+			max-width: 17rem;
+		}
+
+		@include bp($point_4) {
+			max-width: 15rem;
+		}
+	}
+
+	label {
+		font-size: 1.5rem;
+		width: 100%;
+		font-family: $font_4;
+		display: block;
+		cursor: pointer;
+		.check-img {
+			position: relative;
+			&:after {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				content: '';
+				border: .3rem solid $yellow;
+				opacity: 0;
+				visibility: hidden;
+				transition: all .3s ease;
+				pointer-events: none;
+			}
+		}
+
+		span {
+			font-size: 1.1rem;
+			font-family: $font_2;
+		}
+	}
+
+	input {
+		display: none;
+		&:checked + label .check-img:after {
+			opacity: 1;
+			visibility: visible
+		}
+	}
+
+
+}
+.quiz_item--content {
+
+	p {
+		font-size: 1.5rem;
+		font-family: $font_3;
+		margin-bottom: 3rem;
+	}
+}
+.quiz_default--input {
+	max-width: 30rem;
+	margin-bottom: 1rem;
+	input {
+		width: 100%;
+		@include app;
+		border-bottom: .1rem solid $white;
+		padding-bottom: 1.3rem;
+		font-size: 1.5rem;
+	}
+}
+.quiz-notice {
+	font-size: 1.1rem;
+	opacity: .5;
+	max-width: 51.1rem;
+	a {
+		color: inherit
+	}
+}
+.thanks {
+
+	@include flex-center;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	height: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	@include bp($point_4) {
+		width: 100%;
+		max-width: 80%;
+	}
+	h3 {
+		font-size: 4.4rem;
+		font-family: $font_5;
+		max-width: 40rem;
+
+		@include bp($point_4) {
+			font-size: 3rem;
+			max-width: 100%;
+		}
+	}
+
+	&>p {
+		padding: 3rem 0 8rem 0;
+		font-size: 2.4rem;
+		font-family: $font_4;
+	}
+
+	.btn {
+		button {
+			padding: 1.5rem 2rem;
+
+			p {
+				@include bp($point_4) {
+					font-family: $font_4;
+				}
+			}
+		}
+	}
+}
+.quiz-nav {
+	@include flex-start;
+	display: none;
+	padding: 0 13.3rem 13.3rem 13.3rem;
+
+	@include bp(1420px) {
+		padding: 0 5rem 5rem 10rem;
+	}
+
+	@include bp($point_4) {
+		padding: 3rem 0;
+	}
+
+	.quiz-next {
+		button {
+			padding: 1.5rem 2rem;
+			font-size: 1.5rem;
+			font-family: $font_4;
+			color: $dark;
+		}
+	}
+}
+.quiz-prev {
+	margin-right: 2rem;
+	button {
+		color: $dark;
+		.icons {
+			transform: rotate(-90deg);
+			font-size: 3rem;
+			opacity: .5;
+			width: 3rem;
+			height: 3rem;
+			color: $white;
+		}
+		pointer-events: none;
+	}
+	
+	&.active {
+		button {
+			cursor: pointer;
+			pointer-events: all;
+		}
+		.icons {
+			opacity: 1;
+		}
+	}
+}
+.quiz-next {
+}
+.advantages {
+	background: linear-gradient(180deg, #FAFAFA 0%, #E9E8E8 100%);
+	padding-top: 18rem;
+	position: relative;
+
+	@include bp($point_4) {
+		padding-top: 10rem;
+	}
+}
+.advantages_main {
+}
+.adv_list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+	grid-gap: 3rem;
+	font-size: 2.4rem;
+	max-width: 124rem;
+	margin: 0 auto;
+	min-height: 76.3rem;
+
+	@include bp($point_2) {
+		grid-gap: 1rem;
+		font-size: 2.2rem;
+	}
+
+	@include bp($point_4) {
+		grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+		grid-gap: 3rem;
+	}
+
+}
+.adv_item {
+	background: $white;
+	@include bp($point_2) {
+		padding-bottom: 15rem;
+	}
+	@include bp($point_4) {
+		padding: 0;
+	}
+	&:nth-child(2) {
+		margin-top: -8rem;
+		@include bp($point_4) {
+			margin: 0;
+		}
+	}
+}
+.adv_item--head {
+	background: $yellow;
+	padding: 3.5rem 8rem;
+	@include flex-center;
+	font-family: $font_4;
+	text-align: center;
+	font-size: 2.4rem;
+	@include bp($point_2) {
+		font-size: 2.2rem;
+		padding: 3rem 5rem;
+	}
+}
+.adv_item--body {
+	padding: 4.5rem 4rem;
+}
+.subitem_adv {
+	@include flex-start;
+	align-items: flex-start;
+	@include bp($point_2) {
+		flex-direction: column;
+	}
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+
+	.icon {
+		width: 4rem;
+		height: 4rem;
+		min-width: 4rem;
+		@include flex-center;
+		margin-right: 1.5rem;
+
+		@include bp($point_2) {
+			margin: 0 0 2rem 0;
+		}
+	}
+}
+.subitem_adv--txt {
+	font-size: 1.5rem;
+	@include bp(1250px) {
+		font-size: 1.8rem;
+	}
+	@include bp($point_2) {
+		font-size: 1.6rem;
+	}
+
+	span {
+		font-family: $font_4;
+	}
+}
+.adv-bg {
+	margin-top: -25rem;
+	@include bp(1250px) {
+		margin-top: -15rem;
+	}
+	
+
+	@include bp($point_4) {
+		margin-top: -1rem;
+	}
+	
+}
+.about {
+	background: $violet;
+	position: relative;
+	margin-bottom: 15rem;
+	@include bp($point_4) {
+		margin-bottom: 10rem;
+	}
+}
+.about_main {
+	@include flex-start;
+	color: $white;
+
+	@include bp($point_4) {
+		flex-direction: column;
+	}
+
+	h3 {
+		font-size: 2.4rem;
+		@include bp($point_2) {
+			font-size: 1.8rem;
+		}
+
+		@include bp($point_4) {
+			font-size: 2.6rem;
+			line-height: 150%;
+		}
+	}
+	font-size: 2.1rem;
+	@include bp($point_2) {
+		font-size: 1.6rem;
+	}
+}
+.about_content {
+	max-width: 58.5rem;
+	padding: 10rem 0;
+	@include bp($point_2) {
+		max-width: 45%;
+	}
+
+	@include bp($point_4) {
+		max-width: 100%;
+		padding: 5rem 0;
+	}
+	* {
+		padding: 1.5rem 0;
+	}
+}
+.about-img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	max-width: 69.9rem;
+	width: 100%;
+	@include bp($point_2) {
+		max-width: 50%;
+	}
+
+	@include bp($point_4) {
+		position: static;
+		max-width: 100%;
+	}
+	img {
+		height: 100%;
+		object-fit: cover;
+		@include bp($point_2) {
+			height: auto;
+		}
+	}
+}
+.about_people {
+	position: absolute;
+	bottom: 0;
+	right: 28%;
+	@include bp($point_2) {
+		right: 10%;
+		max-width: 25rem;
+	}
+}
+.work {
+	position: relative;
+	margin-bottom: 16.2rem;
+	@include bp($point_2) {
+		overflow: hidden;
+		margin-bottom: 10rem;
+	}
+	&:before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 45.3rem;
+		height: 100%;
+		content: '';
+		background: linear-gradient(270deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%);
+		z-index: 3;
+		pointer-events: none;
+
+		@include bp($point_2) {
+			display: none;
+		}
+	}
+}
+.work_head {
+	@include flex-center;
+	flex-direction: column;
+	text-align: center;
+	position: relative;
+	margin-bottom: 10rem;
+	z-index: 4;
+	@include bp($point_2) {
+		margin-bottom: 5rem;
+	}
+
+	h3 {
+		font-size: 4.4rem;
+		font-family: $font_5;
+		line-height: 120%;
+		margin-bottom: 2rem;
+
+		@include bp($point_2) {
+			font-size: 3rem;
+		}
+
+		span {
+			background-color: $violet;
+			color: $white;
+			display: inline-flex;
+			justify-content: center;
+			padding: 0 1rem;
+		}
+	}
+	
+	p {
+		font-size: 2.4rem;
+		font-family: $font_4;
+		@include bp($point_2) {
+			font-size: 1.8rem;
+		}
+	}
+}
+.work-nav {
+	position: absolute;
+	top: 0;
+	right: 0;
+	@include flex-end;
+
+	@include bp($point_4) {
+		display: none;
+	}
+
+	&>div {
+		font-size: 4rem;
+		cursor: pointer;
+		color: $violet;
+		&.swiper-button-disabled {
+			color: $grey;
+		}
+		&:nth-child(1) {
+			transform: rotate(-90deg);
+			margin-right: 4rem;
+		}
+		&:nth-child(2) {
+			transform: rotate(90deg);
+		}
+	}
+}
+.work-prev {
+}
+.work-next {
+}
+.work_slider--w {
+}
+.work-slider {
+	overflow: visible!important;
+
+	@include bp($point_4) {
+		padding-bottom: 5rem!important;
+	}
+}
+.swiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.work-slide {
+	background: var(--white, #FFF);
+	box-shadow: 0 1rem 5rem 0 rgba(0, 0, 0, 0.05);
+}
+.work_slide--main {
+}
+.work_slide--img {
+	width: 100%;
+	height: 50rem;
+	@include bp($point_2) {
+		height: 30rem;
+	}
+	img {
+		height: 100%;
+		object-fit: cover;
+	}
+}
+.work_slide--content {
+	padding: 4rem 6rem;
+
+	@include bp($point_2) {
+		padding: 2rem 3rem;
+	}
+
+	h3 {
+		font-size: 2.4rem;
+		font-family: $font_4;
+		margin-bottom: 3rem;
+	}
+}
+.work_slideContent--params {
+
+	li {
+		@include flex-start;
+		align-items: flex-start;
+		font-size: 1.5rem;
+
+		@include bp(1250px) {
+			flex-direction: column;
+			font-size: 2rem;
+		}
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+		p {
+			margin-right: 1.5rem;
+			font-family: $font_4;
+			@include bp(1250px) {
+				margin: 0 0 2rem 0;
+			}
+		}
+
+		span {
+			max-width: 24.8rem;
+			display: block;
+			@include bp($point_4) {
+				max-width: 100%;
+			}
+		}
+	}
+}
+.work_slide--link {
+		background-color: $violet;
+		@include flex-end;
+		color: $white;
+		padding: 2.6rem 3rem;
+		width: 100%;
+		cursor: pointer;
+		transition: all .3s ease;
+		&:hover {
+			background-color: $hover;
+		}
+		p {
+			margin-right: 1rem;
+			text-transform: uppercase;
+			font-size: 1.5rem;
+			font-family: $font_4;
+		}
+
+		.icons {
+			transform: rotate(90deg);
+			margin-top: -0.1rem;
+		}
+}
+.order {
+}
+.order_main {
+	margin-bottom: 15rem;
+}
+.order-list {
+	counter-reset: item
+}
+.order-item {
+	@include flex-start;
+	counter-increment: item;
+	position: relative;
+	@include bp($point_2) {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0 3rem;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 6rem;
+		opacity: 0.07;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%);
+		pointer-events: none;
+	}
+	.order_item--content {
+		position: relative;
+		padding: 5rem 5rem 5rem 36.2rem;
+		min-height: 33.4rem;
+		@include flex-center;
+		align-items: flex-start;
+		flex-direction: column;
+		.btn {
+			position: relative;
+			z-index: 2;
+		}
+		@include bp(1420px) {
+			min-height: 100%;
+			padding: 5rem 5rem 5rem 0;
+			max-width: 80%;
+		}
+		@include bp($point_2) {
+			padding: 5rem 0;
+			position: static;
+			max-width: 100%;
+		}
+		.order_itemContent--txt {
+			max-width: 58.5rem;
+			p {
+				padding-top: 3rem;
+				font-size: 2.1rem;
+				@include bp(1250px) {
+					font-size: 2.2rem;
+				}
+
+				@include bp($point_4) {
+					font-size: 1.8rem;
+				}
+			}
+		}
+		flex: 1;
+		&:before {
+			content: counter(item);
+			font-size: 30rem;
+			font-family: $font_5;
+			opacity: .05;
+			position: absolute;
+			left: 5rem;
+			bottom: 0;
+			line-height: 20rem;
+			@include bp($point_2) {
+				font-size: 15rem;
+				left: auto;
+				right: 5rem;
+			}
+		}
+	}
+	
+	&:nth-child(1) {
+		.order_item--img {
+			max-width: 40%;
+			@include bp(1420px) {
+				max-width: 50%;
+			}
+			@include bp($point_2) {
+				display: block;
+			}
+
+			@include bp($point_4) {
+				display: none;
+			}
+		}
+		.order_item--content {
+			&:before {
+				font-size: 40rem;
+				left: 7rem;
+				line-height: 25rem;
+				@include bp($point_2) {
+					font-size: 30rem;
+					left: auto;
+					right: 5rem;
+				}
+			}
+		}
+	}
+
+	&:last-child {
+		.order_item--content {
+			.btn {
+				button {
+					padding: 2.7rem 3.3rem;
+					text-transform: uppercase;
+					font-family: $font_4;
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+	
+	&:nth-child(2n + 2) {
+		.order_item--content {
+			order: 1;
+			padding: 5rem 36.2rem 5rem 15.3rem!important;
+			padding-left: 36.2rem;
+			@include bp(1420px) {
+				padding: 5rem 20rem 5rem 5rem!important;
+			}
+			@include bp($point_2) {
+				order: 1;
+				padding: 5rem 0!important;
+			}
+			&:before {
+				left: auto;
+				right: 5rem;
+			}
+		}
+	}
+}
+.order_item--content {
+	@include bp($point_2) {
+		order: 2;
+	}
+
+	h3 {
+		font-size: 2.4rem;
+	}
+
+	@include bp(1420px) {
+		max-width: 50%;
+	}
+	@include bp($point_2) {
+		max-width: 100%;
+	}
+
+	&>p {
+		font-size: 2.1rem;
+		margin: 3rem 0 4rem 0;
+
+		@include bp($point_2) {
+			font-size: 1.8rem;
+		}
+	}
+}
+.order-forms {
+	@include flex-start;
+	flex-wrap: wrap;
+	margin: -5rem -5rem 2rem 0;
+	@include bp($point_4) {
+		margin: -3rem -3rem 2rem 0;
+	}
+	&>div {
+		padding: 5rem 5rem 0 0;
+		@include bp($point_4) {
+			padding: 3rem 3rem 0 0;
+		}
+	}
+
+	input {
+		@include app;
+		padding-bottom: 1rem;
+		border-bottom: .1rem solid $grey;
+		&:-ms-input-placeholder {
+			color: $grey;
+		}
+		&::-webkit-input-placeholder {
+			color: $grey;
+		}
+		&:focus {
+			border-color: $violet;
+			color: $dark;
+		}
+	}
+}
+
+.order-btn {
+	input {
+		padding: 2.3rem 3rem;
+		background-color: $violet;
+		border: none;
+		text-transform: uppercase;
+		font-size: 1.5rem;
+		font-family: $font_4;
+		cursor: pointer;
+	}
+}
+.order-input {
+
+	@include bp($point_4) {
+		width: 100%;
+	}
+
+	input {
+		@include bp($point_4) {
+			width: 100%;
+		}	
+	}
+}
+.order-btn {
+}
+.form-notice {
+	font-size: 1.1rem;
+	color: $grey;
+	max-width: 51.1rem;
+
+	@include bp($point_4) {
+		line-height: 1.4rem;
+	}
+	a {
+		color: inherit;
+	}
+}
+.order_item--img {
+	width: 45%;
+	min-height: 33.4rem;
+	@include bp(1420px) {
+		min-height: 100%;
+		width: auto;
+		flex-grow: 1;
+		max-width: 50%;
+	}
+	@include bp($point_2) {
+		display: none;
+	}
+	img {
+		height: 100%;
+		object-fit: cover;
+	}
+}
+.video {
+}
+.video_main {
+	margin-bottom: 15rem;
+	@include bp(1420px) {
+		margin-bottom: 10rem;
+	}
+
+	p {
+		font-size: 2.4rem;
+		font-family: $font_4;
+		margin-bottom: 12rem;
+		@include bp(1420px) {
+			font-size: 2.2rem;
+		}
+
+		@include bp($point_4) {
+			margin-bottom: 5rem;
+			font-size: 2rem;
+		}
+	}
+	h4 {
+		font-size: 4.4rem;
+		font-family: $font_5;
+		margin-bottom: 2rem;
+		@include bp(1420px) {
+			font-size: 3.4rem;
+		}
+
+		span {
+			background: $violet;
+			color: $white;
+			display: inline-flex;
+			padding: 0 1rem;
+			text-align: center;
+		}
+
+	}
+	text-align: center;
+}
+.video-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+	grid-gap: 3rem;
+
+	@include bp($point_2) {
+		grid-gap: 1rem;
+		grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+	}
+
+	@include bp($point_4) {
+		grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+	}
+}
+.video-item {
+	position: relative;
+	height: 82rem;
+
+	a {
+		display: block;
+	}
+
+	@include bp(1420px) {
+		max-height: 60rem;
+	}
+
+	@include bp($point_2) {
+		max-height: 50rem;
+	}
+
+	@include bp($point_4) {
+		height: auto;
+		max-height: 100%;
+	}
+
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		content: '';
+		background-color: $dark;
+		opacity: .3;
+		pointer-events: none;
+		transition: all .3s ease;
+	}
+
+	&:hover {
+		&:before {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		.icons {
+			color: $white;
+		}
+	}
+	img {
+		height: 100%;
+		object-fit: cover;
+
+		@include bp($point_4) {
+			height: auto;
+		}
+	}
+
+	.icons {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 8rem;
+		height: 8rem;
+		@include flex-center;
+		border-radius: 100%;
+		font-size: 5rem;
+		color: $yellow;
+		background-color: $violet;
+		transition: all .3s ease;
+	}
+}
+.mdi:play-speed {
+}
+.team {
+	background-color: #FAFAFA;
+	margin-bottom: 13rem;
+
+	@include bp($point_4) {
+		margin-bottom: 10rem;
+	}
+}
+.team_main {
+	padding: 13rem 0;
+	@include bp($point_2) {
+		padding: 6rem 0 10rem 0;
+	}
+
+	h4 {
+		font-size: 4.4rem;
+		font-family: $font_5;
+		margin-bottom: 12rem;
+
+		@include bp(1420px) {
+			font-size: 3.4rem;
+		}
+
+		@include bp($point_4) {
+			text-align: center;
+			margin-bottom: 7rem;
+		}
+		span {
+			color: $violet;
+		}
+	}
+}
+.team-list {
+
+	&>li {
+		@include flex-start;
+		align-items: flex-start;
+		@include bp($point_2) {
+			flex-direction: column;
+		}
+
+		&:nth-child(2), &:nth-child(3) {
+			.team_item--img {
+
+				@include bp($point_2) {
+					order: 0;
+					margin: 0!important;
+					padding-left: 0;
+				}
+			}
+			.team_item--content {
+				@include bp($point_2) {
+					order: 2;
+				}
+			}
+		}
+
+		span {
+			color: $grey;
+			font-size: 1.5rem;
+			font-family: $font_4;
+			line-height: 120%;
+			display: block;
+			padding-top: 2rem;
+		}
+		&:not(:last-child) {
+			margin-bottom: 10rem;
+			@include bp($point_2) {
+				margin-bottom: 7rem;
+			}
+		}
+
+
+		.team_item--name {
+			color: $white;
+			font-size: 2.4rem;
+			font-family: $font_4;
+			padding: 3rem 4rem;
+			margin-left: -10rem;
+			margin-bottom: 2.5rem;
+			position: relative;
+			@include bp($point_2) {
+				margin: 2rem 0!important;
+				font-size: 2.2rem;
+				padding: 2rem 3rem;
+			}
+		}
+		.team_item--img {
+			padding-left: 3rem;
+			position: relative;
+			&:before {
+				content: '';
+				width: 3rem;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
+
+
+		&.violet {
+			.team_item--name {
+				background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 34.90%, rgba(0, 0, 0, 0.80) 100%), #9000FF;
+				background-blend-mode: soft-light, normal;
+			}
+			.team_item--img {
+				&:before {
+					background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 34.90%, rgba(0, 0, 0, 0.205) 100%), #9000FF;
+					background-blend-mode: soft-light, normal;
+				}
+			}
+		}
+
+		&.yellow {
+
+			&:nth-child(3) {
+				.team_item--content {
+					align-items: flex-start;
+				}
+
+				.team_item--name {
+					margin-right: 0;
+					margin-left: -15rem;
+				}
+
+				.team_item--img {
+					padding-left: 3rem;
+					&:before {
+						background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 100%), #FDD02F;
+						background-blend-mode: soft-light, normal;
+						left: 0;
+						right: auto;
+					}
+				}
+			}
+			.team_item--content {
+				@include flex-end;
+				flex-direction: column;
+				align-items: flex-end;
+				max-width: 76.7rem;
+				@include bp($point_2) {
+					align-items: flex-start;
+				}
+			}
+			.team_item--name {
+				background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 100%), #FDD02F;
+				background-blend-mode: soft-light, normal;
+				color: $dark;
+				display: inline-flex;
+				margin-right: -13rem;
+				margin-left: 0;
+			}
+			.team_item--img {
+				&:before {
+					background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 100%), #FDD02F;
+					background-blend-mode: soft-light, normal;
+					padding-right: 3rem;
+					right: 0;
+					left: auto;
+				}
+			}
+		}
+
+
+		&:nth-child(2n + 2) {
+			.team_item--img {
+				order: 1;
+				margin-left: 5rem;
+				margin-right: 0;
+			}
+		}
+	}
+}
+.team-item {
+}
+.violet {
+}
+.team_item--img {
+	margin-right: 5rem;
+	@include bp($point_2) {
+		max-width: 40rem;
+		margin: 0;
+	}
+}
+.team_item--content {
+	max-width: 102.7rem;
+	padding-top: 2rem;
+}
+.team_item--name {
+}
+.team_item--txt {
+	font-size: 2.1rem;
+	line-height: 120%;
+	@include bp(1250px) {
+		font-size: 2.2rem;
+	}
+
+	@include bp($point_2) {
+		font-size: 1.8rem;
+	}
+	ul, ol, p {
+		padding: 1.3rem 0;
+	}
+	ul {
+		li {
+			padding-left: 2rem;
+			position: relative;
+			// &:not(:last-child) {
+			// 	margin-bottom: .5rem;
+			// }
+			&:before {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 0;
+				width: .5rem;
+				height: .5rem;
+				content: '';
+				background: $dark;
+				border-radius: 100%;
+			}
+		}
+	}
+}
+.yellow {
+}
+.small-txt {
+}
+.faq {
+
+	h4 {
+		font-size: 4.4rem;
+		font-family: $font_5;
+		margin-bottom: 8rem;
+		@include bp(1420px) {
+			font-size: 3.4rem;
+		}
+
+		@include bp($point_2) {
+			text-align: center
+		}
+	}
+}
+.faq_main {
+	@include flex-space;
+	align-items: flex-start;
+}
+.faq_list {
+	max-width: 78.1rem;
+	width: 100%;
+	margin-right: 10rem;
+	@include bp($point_2) {
+		max-width: 90%;
+		margin: 0 auto 5rem auto;
+	}
+
+	@include bp($point_4) {
+		max-width: 100%;
+	}
+}
+.faq-item {
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+
+	&.active_mod {
+		.faq_item--head {
+			background-color: $yellow;
+			h3 {
+				font-family: $font_5;
+				font-weight: 700;
+			}
+			&:hover {
+				color: $dark;
+			}
+		}		
+		.faq_item--control {
+			.icons {
+				transform: rotate(0);
+				color: $dark
+			}
+		}
+	}
+}
+.faq_item--head {
+	@include flex-space;
+	position: relative;
+	padding: 2.3rem 3rem;
+	font-size: 2.1rem;
+	background: #FAFAFA;
+	cursor: pointer;
+	transition: all .3s ease;
+	@include bp(1250px) {
+		font-size: 2.3rem;
+	}
+
+	@include bp($point_4) {
+		font-size: 2rem;
+	}
+	
+	h3 {
+		font-family: $font_2;
+		font-weight: 400;
+
+	}
+	&:hover {
+		color: $dark;
+		background-color: $yellow;
+	}
+
+	h3 {
+		max-width: 68.1rem;
+	}
+}
+.faq_item--control {
+	font-size: 3rem;
+	color: $violet;
+	position: absolute;
+	top: 2.2rem;
+	right: 1.3rem;
+	cursor: pointer;
+	.icons {
+		transform: rotate(45deg);
+		transition: all .3s ease;
+	}
+}
+.material-symbols:close {
+}
+.faq_item--content {
+	padding: 3rem 0 2rem 3rem;
+}
+.faq-img {
+	max-width: 46.2rem;
+	@include bp(1420px) {
+		max-width: 34rem;
+	}
+
+	@include bp($point_2) {
+		display: none;
+	}
+}

@@ -11,14 +11,6 @@
     <link rel="stylesheet" media="all" href="styles/main_global.css"/>
   </head>
   <body>
-    <header class="header"> 
-      <div class="section_in"> 
-        <div class="header_main">
-          <div class="logo"> <a href="#"><img src="i/logo.svg" alt=""></a></div>
-          <div class="burger-trigger"> <span> </span><span> </span><span> </span></div>
-        </div>
-      </div>
-    </header>
     <div class="wrapper">
       <div class="base">
         <section class="policy"> 
@@ -215,9 +207,50 @@
         <div class="up"> <a href="#">
             <div class="icons charm:chevron-up"><span class="iconify" data-icon="charm:chevron-up"></span></div></a></div>
       </div>
+      <section class="contacts">
+        <div class="map">
+           <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A8f03c86f4a2a5b2b589fbdaecbe8d2fb2e87c97125de371c3813726dd7bc0fcf&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=false"></script></div>
+        <div class="contacts_card--w">
+          <div class="contacts_card">
+            <h5>Контакты</h5>
+            <ul class="contacts_info"> 
+              <li> <a href="tel:89884011191">
+                  <div class="icons fluent:call--regular"><span class="iconify" data-icon="fluent:call-20-regular"></span></div>
+                  <p>8 988 401 11 91</p></a></li>
+              <li> <a href="mailto:maksimum.mail@yandex.ru">
+                  <div class="icons ant-design:mail-outlined"><span class="iconify" data-icon="ant-design:mail-outlined"></span></div>
+                  <p>maksimum.mail@yandex.ru</p></a></li>
+              <li> 
+                <div class="icons ep:location"><span class="iconify" data-icon="ep:location"></span></div>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+              </li>
+            </ul>
+            <ul class="contacts-social"> 
+              <li> <a href="#">
+                  <div class="icons fa-brands:vk"><span class="iconify" data-icon="fa6-brands:vk"></span></div>
+                  <p>club171559736</p></a></li>
+              <li> <a href="#">
+                  <div class="icons grommet-icons:instagram"><span class="iconify" data-icon="grommet-icons:instagram"></span></div>
+                  <p>blagoustroi23.ru</p></a></li>
+            </ul>
+          </div>
+          <div class="contacts_btn trigger" data-target="form"> 
+            <button type="button">Оставить заявку</button>
+          </div>
+        </div>
+      </section>
       <footer class="footer"> 
         <div class="section_in"> 
-          <div class="footer_main"></div>
+          <div class="footer_main">
+            <div class="footer-policy"> <a href="#">Политика конфиденциальности</a></div>
+            <div class="footer_col--right"> 
+              <div class="footer_copyright"> 
+                <div class="icons mingcute:copyright-fill"><span class="iconify" data-icon="mingcute:copyright-fill"></span></div>
+                <p>2023</p>
+              </div>
+              <div class="footer-brand"> <a href="#"><img src="i/arcada.svg" alt=""></a></div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
@@ -229,57 +262,105 @@
     <script src="js/libs.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/main.js"></script><script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-    <div class="popup popup-form"> 
+    <div class="popup popup-form" data-id="form">
       <div class="popup_bg remove"> </div>
       <div class="popup-main"> 
         <div class="close remove"> 
-          <div class="icons radix-icons:cross-"><span class="iconify" data-icon="radix-icons:cross-1"></span></div>
+          <div class="icons material-symbols:close"><span class="iconify" data-icon="material-symbols:close"></span></div>
         </div>
-        <h3>Оставьте заявку</h3>
+        <h3>Оставить заявку на обратный звонок</h3>
         <div class="popup_form--form"> 
           <div class="app-input">
             <input type="text" placeholder="Ваше имя" data-type=""/>
-            <div class="error-message">Неверно введены данные</div>
           </div>
           <div class="app-input">
             <input type="tel" placeholder="Ваш телефон" data-type=""/>
-            <div class="error-message">Неверно введены данные</div>
           </div>
           <div class="app-bottom"> 
-            <div class="app-btn"> 
-              <div class="btn" data-target="">
-                <input type="submit" value="Оставить заявку"/>
-              </div>
-              <div class="form-notice">Оставляя данные, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности</a></div>
+            <div class="form-notice">Оставляя данные, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности</a></div>
+            <div class="btn app-btn" data-target="">
+              <input type="submit" value="Отправить"/>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="popup popup-service"> 
+    <div class="popup-work popup" data-id="work"> 
       <div class="popup_bg remove"> </div>
-      <div class="popup_service--main popup_main"> 
-        <div class="close remove"> 
-          <div class="icons radix-icons:cross-"><span class="iconify" data-icon="radix-icons:cross-1"></span></div>
+      <div class="popup_main popup_work--main">
+        <div class="remove popup_work--close"> 
+          <div class="icons material-symbols:close"><span class="iconify" data-icon="material-symbols:close"></span></div>
         </div>
-        <div class="popup_service--head"> 
-          <h3>Два в одном</h3>
-          <p>Тотальное бикини + подмышки</p><span>1500 ₽</span>
+        <div class="popup_slider--w"> 
+          <div class="popup-slider swiper"> 
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+            </div>
+          </div>
+          <div class="popup-thumb swiper"> 
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="i/popup.jpg" alt=""></div>
+            </div>
+          </div>
+          <div class="popup-nav"> 
+            <div class="popup-prev"> 
+              <div class="icons ph:arrow-up-bold"><span class="iconify" data-icon="ph:arrow-up-bold"></span></div>
+            </div>
+            <div class="popup-next">
+              <div class="icons ph:arrow-up-bold"><span class="iconify" data-icon="ph:arrow-up-bold"></span></div>
+            </div>
+          </div>
         </div>
-        <div class="popup_service--txt"> 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          <ul> 
-            <li>Ut enim ad minim veniam, quis nostrud exercitation;</li>
-            <li>Ut enim ad minim veniam, quis nostrud exercitation;</li>
-            <li>Ut enim ad minim veniam, quis nostrud exercitation;</li>
-            <li>Ut enim ad minim veniam, quis nostrud exercitation;</li>
-            <li>Ut enim ad minim veniam, quis nostrud exercitation;</li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <div class="popup-content"> 
+          <h3>Название проекта</h3>
+          <div class="popup-params"> 
+            <ul> 
+              <li> 
+                <p>Метраж:</p><span>36 м2</span>
+              </li>
+              <li> 
+                <p>Стоимость ремонта:</p><span>50 000 рублей за м2 (бюджет полностью с мебелью)</span>
+              </li>
+            </ul>
+          </div>
+          <div class="popup-txt">
+            <p>Выполнили ремонт квартиры в ЖК 123 в современном лофт-стиле для инвестора.Получилась двушка с изолированной спальней, полноценной кроватью, вместительным шкафом купе, зал с кухней, минимум перегородок и много мест для хранения.Отличный санузел с большой душевой кабиной.На полу использовали плитку из керамогранита с подогревом.Стены покраска, фотообои.Натяжной потолок с нишами под шторы с подсветкой.Полностью укомплектовали мебелью и техникой.Квартира ушла покупателям с первых просмотров, инвест проект принёс инвестору хорошую прибыль.</p>
+          </div>
+          <div class="popup_form--w">
+            <h4>Хотите ремонт по высшему разряду? Оставьте нам заявку, свяжемся с вами как можно скорее:</h4>
+            <div class="popup-forms"> 
+              <div class="app-input">
+                <input type="text" placeholder="Ваше имя" data-type=""/>
+              </div>
+              <div class="app-input">
+                <input type="tel" placeholder="Ваше имя" data-type=""/>
+              </div>
+              <div class="btn" data-target="">
+                <button type="button">
+                  <p>Отправить</p>
+                </button>
+              </div>
+            </div>
+            <div class="form-notice">Отправляя заявку вы соглашаетесь на обработку своих персональных данных и принимаете <a href="#" target="_blank">Политику конфиденциальности</a></div>
+          </div>
         </div>
       </div>
     </div>

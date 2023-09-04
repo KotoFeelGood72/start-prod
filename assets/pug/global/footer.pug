@@ -1,3 +1,54 @@
+section.contacts
+	.map 
+		<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A8f03c86f4a2a5b2b589fbdaecbe8d2fb2e87c97125de371c3813726dd7bc0fcf&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=false"></script>
+	.contacts_card--w
+			.contacts_card
+				h5 Контакты
+				ul.contacts_info 
+					li 
+						a(href="tel:89884011191")
+							+iconify({
+								icon: 'fluent:call-20-regular'
+							}) 
+							p 8 988 401 11 91
+					li 
+						a(href="mailto:maksimum.mail@yandex.ru")
+							+iconify({
+								icon: 'ant-design:mail-outlined'
+							}) 
+							p maksimum.mail@yandex.ru
+					li 
+						+iconify({
+							icon: 'ep:location'
+						}) 
+						p Lorem ipsum dolor sit amet consectetur.
+				ul.contacts-social 
+					li 
+						a(href="#")
+							+iconify({
+								icon: 'fa6-brands:vk'
+							}) 
+							p club171559736
+					li 
+						a(href="#")
+							+iconify({
+								icon: 'grommet-icons:instagram'
+							}) 
+							p blagoustroi23.ru
+			.contacts_btn.trigger(data-target="form") 
+				button(type="button") Оставить заявку
+				
 footer.footer 
 	.section_in 
 		.footer_main
+			.footer-policy 
+				a(href="#") Политика конфиденциальности
+			.footer_col--right 
+				.footer_copyright 
+					+iconify({
+						icon: 'mingcute:copyright-fill'
+					})
+					p 2023
+				.footer-brand 
+					a(href="#")
+						img(src="i/arcada.svg", alt="") 
