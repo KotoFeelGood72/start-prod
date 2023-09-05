@@ -1824,6 +1824,9 @@
 
 	h3 {
 		max-width: 68.1rem;
+		@include bp($point_4) {
+			max-width: 90%;
+		}
 	}
 }
 .faq_item--control {
