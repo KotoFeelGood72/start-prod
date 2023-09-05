@@ -150,11 +150,11 @@ block content_block
 								if i === i 
 									li 
 										input(type="radio" name="timesBuild" id=`times-build-${i}` checked)
-										label(for=`design-build-${i}`)=times[i]
+										label(for=`times-build-${i}`)=times[i]
 								else 
 									li 
 										input(type="radio" name="timesBuild" id=`times-build-${i}`)
-										label(for=`design-build-${i}`)=times[i]
+										label(for=`times-build-${i}`)=times[i]
 					li.quiz-step
 						.quiz-step--title 
 							h3 Куда Вам отправить расчёт стоимости ремонта?
@@ -175,16 +175,16 @@ block content_block
 						.quiz_item--content 
 							p За этим номером мы закрепим сертификат на 25.000₽
 							.quiz_default--input 
-								input(type="text" placeholder="Номер телефона")
+								input(type="tel" placeholder="Номер телефона")
 							.quiz-notice!='Отправляя заявку вы соглашаетесь на обработку своих персональных данных и принимаете <a href="#" target="_blank">Политику конфиденциальности</a>'
 					li.quiz-step
 						.thanks 
 							h3 Спасибо! Заявка принята
 							p Менеджер скоро свяжется с вами
-							+btn({
-								icon: true,
-								name: 'На сайт'
-							})
+							//- +btn({
+							//- 	icon: true,
+							//- 	name: 'На сайт'
+							//- })
 				.quiz-nav 
 					.quiz-prev
 						button(type="button")

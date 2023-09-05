@@ -384,11 +384,44 @@ $(document).ready(function() {
 });
 
 
-function noUiSliders() {
-	const numberLabel = ['']
+
+
+// Функция для проверки, виден ли элемент на экране
+function isElementInViewport(el) {
+	const rect = el.getBoundingClientRect();
+	return (
+			rect.top >= 0 &&
+			rect.left >= 0 &&
+			rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+			rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+	);
+}
+
+// Функция для добавления класса "active" к видимым элементам с задержкой
+function addActiveClassToItems() {
+	const orderItems = document.querySelectorAll('.order-item');
+	
+	orderItems.forEach((item, index) => {
+			setTimeout(() => {
+					if (isElementInViewport(item)) {
+							item.classList.add('active');
+					}
+			}, index * 200); // Задержка в миллисекундах (200 миллисекунд = 0.2 секунды)
+	});
 }
 
 
+window.addEventListener('scroll', addActiveClassToItems);
+
+
+$(document).ready(function()  {
+
+	var inputsTel = document.querySelectorAll('input[type="tel"]');
+	Inputmask({
+		"mask": "+7 (999) 999-99-99",
+		showMaskOnHover: false
+	}).mask(inputsTel);
+})
 
 
 
