@@ -1,3 +1,39 @@
 footer.footer 
 	.section_in 
 		.footer_main
+			h6!='Свяжитесь с <span>нами</span>'
+			ul.footer_main__list
+				li.footer_main__listItem 
+					span Телефоны
+					ul
+						-for(i = 0; i < 2; i++)
+							li
+								a(href="#")
+									.footer_main__listIcon 
+										+iconify({
+											icon: 'solar:phone-linear'
+										})
+									p +7 000 000 00 00
+				li.footer_main__listItem 
+					span Почта
+					ul
+						li
+							a(href="#") mail@mail.ru
+				li.footer_main__listItem 
+					span Адрес
+					ul
+						li Репищева ул., 14П, Санкт-Петербург
+			.footer_main__bottom 
+				+btn({btn: 'Оставить заявку', class: 'red'})
+				ul.social 
+					each item in ['basil:vk-solid', 'ri:whatsapp-fill', 'cib:telegram-plane']
+						li 
+							a(href="#")
+								+iconify({
+									icon: item
+								})
+		.footer_bottom 
+			.copyright © 2023 Все права защищены
+			a(href="#" class="policy-link") Политика конфиденциальности
+			a(href="#" class="brand-link")
+				img(src="i/arkada.png", alt="") 

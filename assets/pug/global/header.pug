@@ -1,3 +1,13 @@
-header.header 
+header.header
 	.section_in 
-		.header_main
+		.header_main 
+			.logo 
+				a(href="#")
+					img(src="i/logo.png", alt="")
+			nav.header-nav 
+				ul 
+					each item in ['Преимущества', 'Комплектации', 'Конфигуратор', 'Фото и видео', 'Ответы на вопросы']
+						li 
+							a(href="#")=item 
+			.header-phone 
+				a(href="#") +7 000 000 00 00

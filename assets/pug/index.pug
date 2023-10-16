@@ -3,134 +3,192 @@ extends _layout
 block vars
 	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'HOME'}
 block content_block
-	section.hero.pb5
+	section.hero 
 		.section_in 
-			.hero_main(style="background-image: url('i/home/hero.jpg')") 
-				.hero-content 
-					h1!='Меристемные растения <span>под заказ<span/>'
-					p Мы - лаборатория инновационного растениеводства “Меристема”.
+			.hero_main
+				.hero_main__content 
+					h1!='Откройте новый мир <span>с вездеходами</span> Uran'
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					.hero_main__price!='от <span>от 1 330 000 ₽</span>'
+					.hero_main__group 
+						+btn({ btn: 'Получить консультацию', class: 'red' })
+						.hero_main__configuratorLink 
+							a(href="#")
+								.hero_main__configuratorLinkIcon
+									+iconify({ icon: 'ph:plus-light' })
+								p Конфигуратор
+	section.content-block 
+		.section_in 
+			.content_block__main
+				.content_block__img 
+					img(src="i/content/moto.jpg", alt="")
+				.content_block__txt 
+					h2!='Производим мощные и надежные <span>вездеходы Uran</span>'
+					p Мы специализируемся на производстве уникальных транспортных средств - вездеходов на шинах низкого давления Уран.
+					p Они предназначены для передвижения по самым сложным и бездорожным местностям, включая снежные поля, болотистые участки и пересеченную местность.
 					ul 
-						each item in ['Высокая выживаемость растений;', 'Быстрый рост растений;', 'Большое разнообразие сортов.']
-							li=item
-	section.popular 
-		.section_in
-			.popular_main.py8.home-popular
-				+section-head({
-					tag: 2,
-					title: 'Популярные сорта'
-				}) 
-				.populart_slider--w 
-					.popular-slider.swiper
-						.swiper-wrapper
-							-for(i = 0; i < 6; i++)
-								.swiper-slide 
-									+card-popular
-						.popular-pagination
-	section.culture 
-		.section_in
-			.culture_main.py8
-				+section-head({
-					tag: 2,
-					title: 'Популярные культуры',
-					link: 'Перейти ко всем категориям'
-				}) 
-				ul.grid-culture 
-					-for(i = 0; i < 8; i++)
-						- let catTitle = ['Картофель', 'Малина', 'Ежевика', 'Голубика', 'Смородина', 'Земляника', 'Черника', 'Жимолость']
-							li.culture_item
-								a(href="#")
-									img(src=`i/culture/${i}.jpg`, alt="")
-									h3=catTitle[i]
-	section.about 
-		.section_in 
-			.about_main.my8(style="background-image: url('i/home/about.jpg')")
-				.about_content 
-					h3 О меристемных растениях
-					.txt-block 
-						p Меристемные растения - это растения, в которых основным источником роста являются меристемные ткани, которые расположены в их верхушках и боковых побегах.
-						p Эти ткани производят новые клетки, которые затем дифференцируются в различные виды тканей и органов растения. В результате меристемные растения могут расти и развиваться на протяжении всей своей жизни.
-	section.service-small 
-		.section_in
-			.service-small--main.py8
-				+section-head({
-					tag: 4,
-					title: 'Преимущества меристемных растений'
-				})
-				.serviceSmall_main
-					ul.serviceSmall_list 
-						-
-							let serviceSmall = [
-								{
-									icon: 'ion:leaf-outline',
-									title: 'Быстрый</br> размножительный путь',
-									txt: 'Имея даже одно растение можно получить  множество дубликатов'
-								},
-								{
-									icon: 'octicon:bug-24',
-									title: 'Устойчивость</br> к болезням и вредителям',
-									txt: 'Меристемы устойчивы к большинству заболеваний.'
-								},
-								{
-									icon: 'ph:coins-light',
-									title: 'Экономическая эффективность',
-									txt: 'Растения дают высокие урожаи качественных товарных плодов.'
-								},
-								{
-									icon: 'streamline:money-graph-arrow-increase-ascend-growth-up-arrow-stats-graph-right-grow',
-									title: 'Высокая адаптивность </br>и продуктивность',
-									txt: 'Растения быстрее развиваются, раньше цветут и плодоносят.'
-								},
-							]
-						each item in serviceSmall 
-							li.serviceSmall_item
+						li 
+							.content_block__icon 
 								+iconify({
-									icon: item.icon
+									icon: 'game-icons:snowflake-2'
 								})
-								h3!=item.title 
-								p=item.txt
-	section.company 
+							p Передвигается по снежной местности
+						li 
+							.content_block__icon 
+								+iconify({
+									icon: 'game-icons:mountain-road'
+								})
+							p Передвигается по снежной местности
+						li 
+							.content_block__icon 
+								+iconify({
+									icon: 'game-icons:swamp'
+								})
+							p Передвигается по снежной местности
+						li 
+							.content_block__icon 
+								+iconify({
+									icon: 'game-icons:trail'
+								})
+							p Передвигается по снежной местности
+	section.adv 
 		.section_in 
-			.company_main.py8
-				.block-img 
-					img(src="i/home/lab.jpg", alt="")
-				.block-content 
-					h4 О нашей лаборатории
-					.txt-block 
-						p Компания была создана с целью развития современных технологий в области селекции растений. Лаборатория работает с различными видами растений, включая овощные, плодовые, зерновые и декоративные.
-						p Методы, используемые лабораторией меристемных растений, основаны на культуре тканей. Это позволяет создавать новые генетически модифицированные сорта растений, которые обладают высокой устойчивостью к болезням и погодным условиям, а также более высоким урожайным потенциалом.
-					+btn({
-						submit: 'Оставить заявку',
-						target: 'form'
-					})
-	section.home-blog 
-		.section_in
-			.home_blog--main.pt8
-				+section-head({
-					tag: 4,
-					title: 'Наши статьи',
-					link: 'Перейти ко всем статьям'
-				}) 
-				.home-blog_main
-					ul.home-blog_list
-						-for(i = 0; i < 3; i++)
-							li
-								+post
-	section.app 
+			.adv_main 
+				.adv_head 
+					h3!='Преимущества вездеходов <span>Uran</span>'
+					.adv_nav 
+						.adv_prev 
+							+iconify({
+								icon: 'iconoir:arrow-left'
+							})
+						.adv_next 
+							+iconify({
+								icon: 'iconoir:arrow-right'
+							})
+				.adv-slider.swiper 
+					.swiper-wrapper
+						-for(i = 0; i < 3; i++) 
+							.swiper-slide 
+								.adv-slide 
+									.adv_slide__img 
+										img(src=`i/adv/adv_${i}.jpg`, alt="")
+									.adv_slide__content 
+										h3 АКПП Aisin® c проходным валом
+										p Чрезвычайно надежный и выносливый четырехступенчатый гидроавтомат Aisin — еще одно достоинство, которым обладает РБМоторс® Атлет. Разработанный нашими инженерами проходной вал крепко и надежно передает момент вращения на карданные валы.
+					.adv-pugination.global-pagination 
+	section.quote 
 		.section_in 
-			include global/app
-	section.popular 
-		.section_in
-			.popular-main.py8
-				+section-head({
-					tag: 2,
-					title: 'Лидеры заказов'
-				})
-				.populart_slider--w 
-					.popular-slider.swiper
-						.swiper-wrapper
-							-for(i = 0; i < 6; i++)
-								.swiper-slide 
-									+card-popular
-						.popular-pagination
-				
-
+			.quote_main 
+				h4!='Охота, рыбалка, поездки с семьей на природу или экстремальные поездки вы <span>воплотите с нашими вездеходами.</span>'
+				+btn({btn: 'Получить консультацию'})
+	section.moto
+		.section_in 
+			.moto_main 
+				h4!='Виды квадроциклов'
+				ul.moto_main__list 
+					- let motoListName = ['Uran Classic', 'Uran Comfort', 'Uran Comfort +', 'Uran Ultra']
+					-for(i = 0; i < motoListName.length; i++)
+						li.moto_main__item 
+							.moto_main__itemImg 
+								img(src="i/moto.png", alt="")
+							.moto_main__itemContent 
+								h4=motoListName[i]
+								ul 
+									li 
+										span Вес
+										p 750 кг
+									li 
+										span Скорость
+										p 80 км/час
+									li 
+										span Грузоподъемность
+										p 600 кг
+								.moto_main__itemPrice от 1 190 000 ₽
+								.moto_main__itemGroup 
+									+btn({btn: 'Заказать сейчас', class: 'red'})
+									+btn({link: 'Подробнее', class: 'transparent'})
+	section.present 
+		.section_in 
+			.present_main 
+				.present_main__content 
+					h5!='Соберите комплектацию с помощью <span>конфигуратора</span>'
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					+btn({btn: 'Открыть конфигуратор', class: 'red'})
+				.present_main__motoGroup 
+					img(src="i/moto-group.png", alt="")
+	section.gallery 
+		.section_in 
+			.gallery_main 
+				.gallery_head 
+					h3!='Посмотрите нашу <span>фотогалерею</span>'
+					.gallery_nav 
+						.gallery_prev 
+							+iconify({
+								icon: 'iconoir:arrow-left'
+							})
+						.gallery_next 
+							+iconify({
+								icon: 'iconoir:arrow-right'
+							})
+				.gallery-slider.swiper 
+					.swiper-wrapper
+						-for(i = 0; i < 3; i++) 
+							.swiper-slide 
+								.gallery-slide
+									a(href=`i/gallery/gallery_${i}`)
+										img(src=`i/gallery/gallery_${i}`, alt="") 
+					.gallery-pugination.global-pagination
+	section.videoreview 
+		.section_in 
+			.videoreview_main 
+				h5!='Видеообзоры <span>вездеходов</span>'
+				ul.videoreview__list 
+					li.videoreview_item
+						.videoreview_item__img 
+							a(href="#")
+								img(src="i/videoreview.jpg", alt="")
+								.play-icon 
+									+iconify({
+										icon: 'fluent:triangle-right-12-filled'
+									})
+							p Текст - Название видео
+	section.action 
+		.section_in 
+			.action_main 
+				.action_main__title 
+					h5!='Бесплатная консультация по подбору вашего идеального <span>вездехода Uran</span>'
+				.action_main__form
+					.action_main__formGroup
+						+input({
+							place: 'Ваше имя'
+						})
+						+input({
+							place: 'Ваш телефон',
+							type: 'tel'
+						})
+					+input({submit: 'Оставить заявку'})
+					.form_notice!='Отправляя форму, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности.</a>'
+				.action_main__bottom 
+					ul 
+						each item in ['+7 000 000 00 00', '+7 000 000 00 00']
+							li 
+								a(href="#")
+									+iconify({
+										icon: 'solar:phone-linear'
+									})
+									p=item 
+					.action_main__bottomImg 
+						img(src="i/form_img.png", alt="")
+	section.faq 
+		.section_in 
+			.faq_main 
+				h6!='Ответы на <span>вопросы</span>'
+				ul.faq_main__list 
+					-for(i = 0; i < 4; i++)
+						li.faq_main__listItem
+							.faq_main__itemHead 
+								p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor?
+								.faq_main__itemIcon 
+									+iconify({
+										icon: 'ph:plus-light'
+									})
