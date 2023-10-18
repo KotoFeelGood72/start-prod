@@ -1,0 +1,292 @@
+.config_main {
+  @include flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: -5rem -11.3rem 10rem 0;
+  &>div {
+    padding: 5rem 11.3rem 0 0;
+    &:nth-child(1) {
+      position: sticky;
+      top: 3rem;
+      left: 0;
+    }
+    &:nth-child(2) {
+      flex-grow: 1;
+    }
+  }
+}
+
+.config {
+  .productDesc__params  {
+    margin-bottom: 0;
+  }
+}
+
+.config_img {
+  position: relative;
+  cursor: grab;
+  max-width: 64rem;
+  img {
+    border-radius: 3rem;
+  }
+}
+
+.config_img__icon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 3.6rem;
+  width: 8rem;
+  height: 8rem;
+  @include flex-center;
+  pointer-events: none;
+}
+
+.config_action {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 56.7rem;
+  h2, h3 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+  }
+}
+.config_var {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+.config_var__item {
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.config_var__item {
+  width: 100%;
+  label {
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.07);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2rem 2rem 6.5rem;
+    cursor: pointer;
+    position: relative;
+    border: .1rem solid transparent;
+    transition: all .3s ease;
+    
+    
+    
+    &:before {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      content: '';
+      background-image: url('../../i/config/unchecked.svg');
+      transition: all .3s ease;
+    }
+    
+    &:after {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      content: '';
+      background-image: url('../../i/config/checked.svg');
+      opacity: 0;
+      visibility: hidden;
+      transition: all .3s ease;
+    }
+  }
+  input {
+    display: none;
+    &:checked + label {
+      border: .1rem solid #FF4A4D;
+      &:after {
+        opacity: 1;
+        visibility: visible;
+      }
+      &:before {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.var_item__head {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+  grid-gap: 2rem;
+  font-family: $font_3;
+  font-weight: 500;
+  padding-bottom: 2rem;
+  border-bottom: .1rem solid rgba(255, 255, 255, 0.10);
+  margin-bottom: 1rem;
+  span {
+    @include flex-end;
+    &:before {
+      content: 'от ';
+      padding-right: 0.5rem;
+    }
+    &:after {
+      content: ' ₽';
+      padding-left: 0.5rem;
+    }
+  }
+}
+
+.var_item__content {
+  ul {
+    @include flex-start;
+    flex-wrap: wrap;
+    margin: -2rem -5rem 0 0;
+    &>li {
+      padding: 2rem 5rem 0 0;
+
+      span {
+        font-size: 1.4rem;
+        opacity: .5;
+        margin-bottom: 0.6rem;
+        display: block;
+      }
+
+      p {
+        font-size: 1.6rem;
+        font-family: $font_3;
+        color: $white-8;
+      }
+    }
+  }
+}
+
+.config_color__list {
+  @include flex-start;
+  flex-wrap: wrap;
+  margin: -1.5rem -1.5rem 3rem 0;
+  li {
+    padding: 1.5rem 1.5rem 0 0;
+
+    input {
+      display: none;
+
+      &:checked + label {
+
+        &:after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    label {
+      width: 10rem;
+      height: 6.9rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      @include flex-center;
+      cursor: pointer;
+      position: relative;
+
+
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background: linear-gradient(0deg, rgba(27, 27, 27, 0.40) 0%, rgba(27, 27, 27, 0.40) 100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all .3s ease;
+        border: .2rem solid #FF4A4D;
+        border-radius: 1rem;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.config_other__color {
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 2rem 2rem 2rem 6.8rem;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 5rem;
+  border: .1rem solid transparent;
+  transition: all .3s ease;
+  user-select: none;
+  &.active {
+    border: .1rem solid #FF4A4D;
+    color: #FF4A4D;
+    &:after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &:before {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    content: '';
+    background-image: url('../../i/config/unchecked.svg');
+    opacity: 1;
+    visibility: visible;
+    transition: all .3s ease;
+  }
+  
+  &:after {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    content: '';
+    background-image: url('../../i/config/checked.svg');
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+  }
+}
+
+.config__total {
+  @include flex-start;
+  flex-wrap: wrap;
+  margin: -2rem -6.6rem 0 0;
+  &>div {
+    padding: 2rem 6.6rem 0 0;
+  }
+}
+
+.config_total__price {
+  span {
+    font-size: 1.8rem;
+    opacity: .5;
+    display: block;
+  }
+
+  p {
+    font-size: 3.2rem;
+    font-family: $font_4;
+    font-weight: 600;
+    color: #FF4A4D;
+    &:after {
+      content: ' ₽';
+    }
+  }
+}

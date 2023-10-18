@@ -1,0 +1,105 @@
+.footer {
+  background: rgba(255, 255, 255, 0.07);
+  margin-top: 15rem;
+}
+
+.footer_main {
+  padding: 8rem 0 5rem 0;
+
+  h6 {
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 5rem;
+  }
+}
+
+.footer_main__bottom {
+  @include flex-space;
+}
+
+.social {
+  margin: -2.5rem -2.5rem 0 0;
+  @include flex-start;
+  flex-wrap: wrap;
+  li {
+    padding: 2.5rem 2.5rem 0 0;
+    a {
+      width: 4.9rem;
+      height: 4.9rem;
+      background-color: rgba(255, 255, 255, 0.20);
+      border-radius: 100%;
+      @include flex-center;
+      font-size: 2.5rem;
+      transition: all .3s ease;
+      &:hover {
+        color: $orange
+      }
+    }
+  }
+}
+
+.footer_main__list {
+  @include flex-start;
+  align-items: flex-start;
+  margin: -3rem -15rem 5rem 0;
+  a {
+    transition: all .3s ease;
+    &:hover {
+      color: $orange;
+      .icons {
+        color: $white;
+      }
+    }
+  }
+  &>li {
+    padding: 3rem 15rem 0 0;
+  }
+}
+
+.footer_main__listItem {
+  span {
+    font-size: 1.8rem;
+    opacity: .5;
+    display: block;
+    margin-bottom: 3rem;
+  }
+
+  ul {
+    li {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+      a {
+        @include flex-start;
+        font-size: 2.2rem;
+        font-family: $font_3;
+      }
+    }
+  }
+}
+
+.footer_main__listIcon {
+  width: 4rem;
+  height: 4rem;
+  @include flex-center;
+  background-color: #ED3336;
+  border-radius: 100%;
+  margin-right: 2rem;
+}
+
+
+.footer_bottom {
+  @include flex-space;
+  border-top: .1rem solid rgba(255, 255, 255, 0.20);
+  padding: 1.9rem 0 2.3rem 0;
+  font-size: 1.6rem;
+  a {
+    transition: all .3s ease;
+    &:hover {
+      color: $orange;
+    }
+    &:nth-child(2) {
+      margin: 0 3rem;
+    }
+  }
+}

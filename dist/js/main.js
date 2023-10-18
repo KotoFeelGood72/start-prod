@@ -13,11 +13,12 @@ let $body,
 
 $(document).ready(function ($) {
 	$body = $('body');
-	if(devStatus) {
 		pageWidget(['index']);
+		pageWidget(['product']);
+		pageWidget(['config']);
 		getAllClasses('html', '.elements_list');
-	}
-	modal();
+		modal();
+		changeStateColor();
 });
 
 $(window).on('load', function () {
@@ -86,6 +87,141 @@ function isRemove(popup) {
 
 
 
+const advSlider = new Swiper('.adv-slider', {
+	// loop: true,
+	navigation: {
+		nextEl: '.adv_next',
+		prevEl: '.adv_prev'
+	},
+	breakpoints: {
+		320: {
+			
+			slidesPerView: 3,
+			spaceBetween: 40,
+		},
+		768: {
+
+			slidesPerView: 3,
+			spaceBetween: 40,
+		},
+		1000: {
+
+			slidesPerView: 3,
+			spaceBetween: 40,
+		},
+		1200: {
+
+			slidesPerView: 3,
+			spaceBetween: 40,
+		},
+		1400: {
+			slidesPerView: 2.4,
+			spaceBetween: 40,
+		}
+	}
+})
+
+
+
+const gallerySlider = new Swiper('.gallery-slider', {
+	loop: true,
+	speed: 500,
+	navigation: {
+		nextEl: '.gallery_next',
+		prevEl: '.gallery_prev'
+	},
+	breakpoints: {
+		320: {
+			
+			slidesPerView: 3,
+			spaceBetween: 40,
+		},
+		768: {
+
+			slidesPerView: 3,
+			spaceBetween: 40,
+		},
+		1000: {
+
+			slidesPerView: 3,
+			spaceBetween: 40,
+		},
+		1200: {
+
+			slidesPerView: 3,
+			spaceBetween: 40,
+		},
+		1400: {
+			slidesPerView: 1.5,
+			spaceBetween: 40,
+			centeredSlides: true,
+			centeredSlidesBounds: true,
+		}
+	}
+})
+
+
+
+
+
+const singleGallerySlider = new Swiper('.productSingle_gallery', {
+	loop: true,
+	speed: 500,
+	navigation: {
+		nextEl: '.single-gallery_next',
+		prevEl: '.single-gallery_prev'
+	},
+	breakpoints: {
+		320: {
+			slidesPerView: 1,
+			spaceBetween: 40,
+		},
+		768: {
+			slidesPerView: 2,
+			spaceBetween: 40,
+		},
+		1000: {
+			slidesPerView: 2,
+			spaceBetween: 40,
+		},
+		1400: {
+			slidesPerView: 3,
+			spaceBetween: 40,
+		}
+	}
+})
+
+function accordion(title, content) {
+	let accordionTitle = $(title),
+		accordionContent = $(content);
+	$(accordionContent).hide();
+	
+	$(accordionTitle).on('click', function () {
+		let $this = $(this);
+		$this.parent().toggleClass('active_mod').siblings().removeClass('active_mod');
+		$(accordionContent).slideUp();
+
+		if (!$this.next().is(":visible")) {
+			$this.next().slideDown();
+		}
+	});
+};
+
+accordion('.faq_main__itemHead', '.faq_main__itemContent');
+
+
+
+function changeStateColor() {
+	let otherColorBtn = document.querySelector('.config_other__color')
+
+	otherColorBtn.addEventListener('click', (e) => {
+		if(otherColorBtn.classList.contains('active')) {
+			otherColorBtn.classList.remove('active')
+		} else {
+			otherColorBtn.classList.add('active')
+		}
+	})
+}
 
 
 

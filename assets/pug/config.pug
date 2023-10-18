@@ -1,0 +1,82 @@
+extends _layout
+
+block vars
+  - array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'Configurator'}
+block content_block
+  +bread(['Главная'], 'Конфигуратор')
+  section.config 
+    .section_in 
+      .config_main
+        div 
+          .config_img
+            .config_img__icon 
+              img(src="i/config/arrow-circle.svg", alt="")
+            img(src="i/config/main.png", alt="")
+        div
+          .config_action
+            .config_var 
+              h2 Выберите комплектацию
+              ul.config_list__var
+                - let configTitle = ['Uran Classic', 'Uran Comfort', 'Uran Comfort +', 'Uran Ultra']
+                - let configPrice = ['1 190 000', '1 190 000', '1 190 000', '1 190 000']
+                -for(i = 0; i < configTitle.length; i++)
+                  li.config_var__item
+                    input(type="radio" id=`variant-${i}` name="moto-variant")
+                    label(for=`variant-${i}`)
+                      .var_item__head 
+                        p=configTitle[i]
+                        span=configPrice[i]
+                      .var_item__content 
+                        ul 
+                          li 
+                            span Вес
+                            p 850 кг
+                          li 
+                            span Скорость
+                            p 80 км/час
+                          li 
+                            span Грузоподъемность
+                            p 600 кг
+            .config_color 
+              h3 Выберите цвет кузова
+              ul.config_color__list 
+                -for(i = 0; i < 15; i++)
+                  li.config_color__item 
+                    input(type="radio" id=`config-color-${i}` name="moto-color")
+                    label(for=`config-color-${i}`)
+                      img(src=`i/config/config-color-${i}.jpg`, alt="")
+              .config_other__color
+                p Запросить свой вариант окраски
+                span Рассчитывается индивидуально
+            .config__total
+              div 
+                .config_total__price 
+                  span Итого:
+                  p 1 190 000
+              div
+                +btn({btn: 'Запросить предложение', class: 'red'})
+      .productDesc__params 
+          h3 Характеристики
+          ul
+            -
+              let params = [
+                { label: 'Двигатель', val: 'TOYOTA' },
+                { label: 'Объем', val: '1,5 литра' },
+                { label: 'Мощность', val: '109 л/с' },
+                { label: 'Коробка передач', val: 'АКПП' },
+                { label: 'Д/Ш/В', val: '285/190/153' },
+                { label: 'Вес', val: '750 кг' },
+                { label: 'Макс. скорость', val: '80 км/ч' },
+                { label: 'Расход л/100 км', val: '18 л' },
+                { label: 'Шины Урал', val: '1100х500' },
+                { label: 'Топливный бак', val: '38 л' },
+                { label: 'Защита двигателя', val: 'ДА' },
+                { label: 'Багажники', val: 'ДА' },
+                { label: 'Блокировка', val: 'Самоблок' },
+                { label: 'Диодная оптика', val: 'ДА' },
+              ]
+            each item in params
+              li 
+                p=item.label
+                .dotted
+                span=item.val

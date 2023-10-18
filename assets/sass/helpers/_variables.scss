@@ -1,5 +1,5 @@
 // Global 
-$header: 16.6rem;
+$header: 9.9rem;
 $footer: 50rem;
 
 // Mobile
@@ -8,15 +8,26 @@ $footer_mob: 10rem;
 
 //---------------------------------------------fonts
 $font_path: "../fonts/";
-$font_1: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+$font_1: 'Winston-Light', sans-serif;
+$font_2: 'Winston-Regular', sans-serif;
+$font_3: 'Winston-Medium', sans-serif;
+$font_4: 'Winston-SemiBold', sans-serif;
+$font_5: 'Racama', 'sans-serif';
 
-$font_size_base: 1.8rem;
+$font_size_base: 2rem;
 //---------------------------------------------fonts###
 
 //---------------------------------------------colors
 $white: #fff;
 $black: #000;
-$dark: #2C2C2C;
+$dark: #1B1B1B;
+$white-8: rgba(255, 255, 255, 0.8);
+$orange: #F6484B;
+
+$gradient: linear-gradient(0deg, rgba(27, 27, 27, 0.20) 0%, rgba(27, 27, 27, 0.20) 100%), #ED3336;
+
+
+$shadow-sm: 0 .4rem 3rem 0 rgba(237, 51, 54, 0.61);
 
 
 $trans: transparent;
@@ -24,9 +35,9 @@ $trans: transparent;
 
 
 
-$color_text_base: $dark;
-$color_link_base: $dark;
-$body_bg: $white;
+$color_text_base: $white;
+$color_link_base: $white;
+$body_bg: $dark;
 //---------------------------------------------colors###
 
 //---------------------------------------------z-index
@@ -40,7 +51,7 @@ $z-index: (
 //---------------------------------------------z-index###
 
 //---------------------------------------------layout
-$page_width: 152rem;
+$page_width: 132rem;
 
 //---------------------------------------------layout###
 

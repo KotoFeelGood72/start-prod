@@ -1,0 +1,108 @@
+extends _layout
+
+block vars
+  - array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'Product'}
+block content_block
+  +bread(['Главная'], 'Uran Classic')
+  section.products
+    .section_in 
+      .productHero_main
+        div 
+          .productHero__img 
+            img(src="i/single.png", alt="")
+        div
+          .productHero__content 
+            h1 Uran Classic
+            ul 
+              li 
+                span Вес
+                p 750 кг
+              li 
+                span Скорость
+                p 80 км/час
+              li 
+                span Грузоподъемность
+                p 600 кг
+            .productHero__price
+              span Итого:
+              p 1 190 000 ₽
+            .productHero__group
+              div 
+                +btn({btn: 'Заказать сейчас', class: 'red'})
+              div
+                .hero_main__configuratorLink 
+                  a(href="#")
+                    .hero_main__configuratorLinkIcon
+                      +iconify({ icon: 'ph:plus-light' })
+                    p Конфигуратор
+      .productDesc_main
+        .productDesc__txt 
+          h2 Описание
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        .productDesc__params 
+          h3 Характеристики
+          ul
+            -
+              let params = [
+                { label: 'Двигатель', val: 'TOYOTA' },
+                { label: 'Объем', val: '1,5 литра' },
+                { label: 'Мощность', val: '109 л/с' },
+                { label: 'Коробка передач', val: 'АКПП' },
+                { label: 'Д/Ш/В', val: '285/190/153' },
+                { label: 'Вес', val: '750 кг' },
+                { label: 'Макс. скорость', val: '80 км/ч' },
+                { label: 'Расход л/100 км', val: '18 л' },
+                { label: 'Шины Урал', val: '1100х500' },
+                { label: 'Топливный бак', val: '38 л' },
+                { label: 'Защита двигателя', val: 'ДА' },
+                { label: 'Багажники', val: 'ДА' },
+                { label: 'Блокировка', val: 'Самоблок' },
+                { label: 'Диодная оптика', val: 'ДА' },
+              ]
+            each item in params
+              li 
+                p=item.label
+                .dotted
+                span=item.val
+      .productSingle_gallery__w
+        .adv_head 
+          h3 Фотогалерея
+          .adv_nav 
+            .single-gallery_prev 
+              +iconify({
+                icon: 'iconoir:arrow-left'
+              })
+            .single-gallery_next 
+              +iconify({
+                icon: 'iconoir:arrow-right'
+              })
+        .productSingle_gallery.swiper 
+          .swiper-wrapper 
+            -for(i = 0; i < 6; i++)
+              .swiper-slide 
+                a(href="i/gallerys.jpg")
+                  img(src="i/gallerys.jpg", alt="")
+      .productStep_main 
+        h4 Заказ, доставка и оплата
+        ul
+          - let stepTitle = ['Как заказать', 'Условия доставки', 'Условия оплаты']
+          -for(i = 0; i < stepTitle.length; i++)
+            li
+              h5=stepTitle[i]
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  section.form 
+    .section_in
+      .form_main__w
+        h5!='Бесплатная консультация по подбору вашего идеального <span>вездехода Uran</span>'
+        .action_main__form
+          .action_main__formGroup
+            +input({
+              place: 'Ваше имя'
+            })
+            +input({
+              place: 'Ваш телефон',
+              type: 'tel'
+            })
+          +input({submit: 'Оставить заявку', class: 'default-btn'})
+          .form_notice!='Отправляя форму, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности.</a>'
+              

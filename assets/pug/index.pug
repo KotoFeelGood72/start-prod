@@ -9,14 +9,16 @@ block content_block
 				.hero_main__content 
 					h1!='Откройте новый мир <span>с вездеходами</span> Uran'
 					p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					.hero_main__price!='от <span>от 1 330 000 ₽</span>'
-					.hero_main__group 
-						+btn({ btn: 'Получить консультацию', class: 'red' })
-						.hero_main__configuratorLink 
-							a(href="#")
-								.hero_main__configuratorLinkIcon
-									+iconify({ icon: 'ph:plus-light' })
-								p Конфигуратор
+					.hero_main__price!='от <span> 1 330 000</span>'
+					.hero_main__group
+						div
+							+btn({ btn: 'Получить консультацию', class: 'red' })
+						div
+							.hero_main__configuratorLink 
+								a(href="#")
+									.hero_main__configuratorLinkIcon
+										+iconify({ icon: 'ph:plus-light' })
+									p Конфигуратор
 	section.content-block 
 		.section_in 
 			.content_block__main
@@ -24,8 +26,9 @@ block content_block
 					img(src="i/content/moto.jpg", alt="")
 				.content_block__txt 
 					h2!='Производим мощные и надежные <span>вездеходы Uran</span>'
-					p Мы специализируемся на производстве уникальных транспортных средств - вездеходов на шинах низкого давления Уран.
-					p Они предназначены для передвижения по самым сложным и бездорожным местностям, включая снежные поля, болотистые участки и пересеченную местность.
+					.txt
+						p Мы специализируемся на производстве уникальных транспортных средств - вездеходов на шинах низкого давления Уран.
+						p Они предназначены для передвижения по самым сложным и бездорожным местностям, включая снежные поля, болотистые участки и пересеченную местность.
 					ul 
 						li 
 							.content_block__icon 
@@ -67,7 +70,7 @@ block content_block
 							})
 				.adv-slider.swiper 
 					.swiper-wrapper
-						-for(i = 0; i < 3; i++) 
+						-for(i = 0; i < 8; i++) 
 							.swiper-slide 
 								.adv-slide 
 									.adv_slide__img 
@@ -84,7 +87,7 @@ block content_block
 	section.moto
 		.section_in 
 			.moto_main 
-				h4!='Виды квадроциклов'
+				h4!='Виды <span>квадроциклов</span>'
 				ul.moto_main__list 
 					- let motoListName = ['Uran Classic', 'Uran Comfort', 'Uran Comfort +', 'Uran Ultra']
 					-for(i = 0; i < motoListName.length; i++)
@@ -135,22 +138,23 @@ block content_block
 						-for(i = 0; i < 3; i++) 
 							.swiper-slide 
 								.gallery-slide
-									a(href=`i/gallery/gallery_${i}`)
-										img(src=`i/gallery/gallery_${i}`, alt="") 
+									a(href=`i/gallery/gallery_${i}.jpg`)
+										img(src=`i/gallery/gallery_${i}.jpg`, alt="") 
 					.gallery-pugination.global-pagination
 	section.videoreview 
 		.section_in 
 			.videoreview_main 
 				h5!='Видеообзоры <span>вездеходов</span>'
-				ul.videoreview__list 
-					li.videoreview_item
-						.videoreview_item__img 
-							a(href="#")
-								img(src="i/videoreview.jpg", alt="")
-								.play-icon 
-									+iconify({
-										icon: 'fluent:triangle-right-12-filled'
-									})
+				ul.videoreview__list
+					-for(i = 0; i < 4; i++)
+						li.videoreview_item
+							.videoreview_item__img 
+								a(href="#")
+									img(src="i/videoreview.jpg", alt="")
+									.play-icon 
+										+iconify({
+											icon: 'fluent:triangle-right-12-filled'
+										})
 							p Текст - Название видео
 	section.action 
 		.section_in 
@@ -166,7 +170,7 @@ block content_block
 							place: 'Ваш телефон',
 							type: 'tel'
 						})
-					+input({submit: 'Оставить заявку'})
+					+input({submit: 'Оставить заявку', class: 'default-btn'})
 					.form_notice!='Отправляя форму, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности.</a>'
 				.action_main__bottom 
 					ul 
@@ -192,3 +196,8 @@ block content_block
 									+iconify({
 										icon: 'ph:plus-light'
 									})
+									+iconify({
+										icon: 'ph:minus-light'
+									})
+							.faq_main__itemContent 
+								p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

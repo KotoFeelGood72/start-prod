@@ -9,7 +9,7 @@ mixin btn(data)
 
 mixin input(data)
   .global_input(class=data.class ? data.class : data.class="form_input")
-    if data.submit === "submit"
-      input(type=data.submit value=data.submit)
+    if data.submit
+      input(type="submit" value=data.submit)
     else
       input(type=data.type ? data.type : data.type="text" placeholder=data.place ? data.place : data.place="Ваше имя")
