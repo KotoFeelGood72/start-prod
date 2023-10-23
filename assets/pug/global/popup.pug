@@ -1,0 +1,35 @@
+.popup.popupForm(data-id="form")
+    .popupForm__bg.remove 
+    .popupForm__main 
+        .popupForm__close.remove 
+            +iconify({
+                icon: 'octicon:x-24'
+            })
+        .popupForm__head 
+            h3 Оставьте свои контакты
+        .popupForm__form
+            +input({ place: 'Ваше имя' })
+            +input({ place: 'Ваш телефон', type: 'tel' })
+            +input({submit: 'Оставить заявку', class: 'default-btn'})
+            .form_notice!='Отправляя форму, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности.</a>'
+
+
+.loader
+
+.popup.burger(data-id="burger")
+    .popup_bg.remove 
+    .burger_main
+        .burger__close.remove 
+            +iconify({
+                icon: 'octicon:x-24'
+            })
+        .logo 
+            a(href="#")
+                img(src="i/logo.png", alt="")
+        nav.header-nav 
+            ul 
+                each item in ['Преимущества', 'Комплектации', 'Конфигуратор', 'Фото и видео', 'Ответы на вопросы']
+                    li 
+                        a(href="#")=item 
+        .header-phone 
+            a(href="#") +7 000 000 00 00

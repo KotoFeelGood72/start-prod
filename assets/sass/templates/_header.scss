@@ -7,21 +7,39 @@
 	will-change: transform;
 	@include z-index(header);
 	@include flex-center;
+	
+	@include bp($point_2) {
+		height: $header_mob;
+	}
 }
 
 .header_main {
 	@include flex-start;
 	border-bottom: .1rem solid rgba(255, 255, 255, 0.2);
 
+	@include bp($point_2) {
+		justify-content: space-between;
+		border: none;
+	}
+
 	.logo {
 		margin-right: 8.2rem;
-		width: 9.9rem
+		width: 9.9rem;
+
+		@include bp($point_2) {
+			max-width: 7rem;
+			margin-right: 4rem;
+		}
 	}
 }
 
 .header-nav {
 	margin-right: 8.4rem;
-	ul {
+
+	@include bp($point_2) {
+		display: none
+	}
+ 	ul {
 		@include flex-start;
 
 		font-size: 1.8rem;
@@ -41,8 +59,38 @@
 }
 
 .header-phone {
+
+	@include bp($point_2) {
+		display: none;
+	}
 	a {
 		font-size: 2.2rem;
 		font-family: $font_4;
+		&:hover {
+			color: $orange;
+		}
+	}
+}
+
+.header-burger {
+	position: relative;
+	width: 4rem;
+	height: 3rem;
+
+	display: none;
+	@include bp($point_2) {
+		display: block;
+	}
+	span {
+		position: absolute;
+		width: 100%;
+		border-bottom: .3rem solid $white;
+		&:nth-child(2) {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		&:nth-child(3) {
+			bottom: 0;
+		}
 	}
 }

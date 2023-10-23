@@ -88,25 +88,27 @@ function isRemove(popup) {
 
 
 const advSlider = new Swiper('.adv-slider', {
-	// loop: true,
 	navigation: {
 		nextEl: '.adv_next',
 		prevEl: '.adv_prev'
 	},
+	pagination: {
+		el: '.adv-pugination'
+	},
 	breakpoints: {
 		320: {
 			
-			slidesPerView: 3,
-			spaceBetween: 40,
+			slidesPerView: 1,
+			spaceBetween: 20,
 		},
 		768: {
 
-			slidesPerView: 3,
+			slidesPerView: 2,
 			spaceBetween: 40,
 		},
 		1000: {
 
-			slidesPerView: 3,
+			slidesPerView: 2,
 			spaceBetween: 40,
 		},
 		1200: {
@@ -126,25 +128,30 @@ const advSlider = new Swiper('.adv-slider', {
 const gallerySlider = new Swiper('.gallery-slider', {
 	loop: true,
 	speed: 500,
+	centeredSlides: true,
+	centeredSlidesBounds: true,
 	navigation: {
 		nextEl: '.gallery_next',
 		prevEl: '.gallery_prev'
 	},
+	pagination: {
+		el: '.gallery-pugination'
+	},
 	breakpoints: {
 		320: {
 			
-			slidesPerView: 3,
+			slidesPerView: 1,
 			spaceBetween: 40,
 		},
 		768: {
 
 			slidesPerView: 3,
-			spaceBetween: 40,
+			spaceBetween: 20,
 		},
 		1000: {
 
 			slidesPerView: 3,
-			spaceBetween: 40,
+			spaceBetween: 20,
 		},
 		1200: {
 
@@ -154,8 +161,6 @@ const gallerySlider = new Swiper('.gallery-slider', {
 		1400: {
 			slidesPerView: 1.5,
 			spaceBetween: 40,
-			centeredSlides: true,
-			centeredSlidesBounds: true,
 		}
 	}
 })
@@ -170,6 +175,9 @@ const singleGallerySlider = new Swiper('.productSingle_gallery', {
 	navigation: {
 		nextEl: '.single-gallery_next',
 		prevEl: '.single-gallery_prev'
+	},
+	pagination: {
+		el: '.productSingle_pugination'
 	},
 	breakpoints: {
 		320: {
@@ -213,18 +221,48 @@ accordion('.faq_main__itemHead', '.faq_main__itemContent');
 
 function changeStateColor() {
 	let otherColorBtn = document.querySelector('.config_other__color')
+	let checkListArr = document.querySelectorAll('input[name="moto-color"]')
 
-	otherColorBtn.addEventListener('click', (e) => {
-		if(otherColorBtn.classList.contains('active')) {
-			otherColorBtn.classList.remove('active')
-		} else {
-			otherColorBtn.classList.add('active')
-		}
-	})
+	
+	checkListArr.forEach(itemCheck => {
+		itemCheck.addEventListener('change', () => {
+			if(itemCheck.checked) {
+				otherColorBtn.classList.remove('active')
+			}
+		})
+	});
+	if(otherColorBtn) {
+		otherColorBtn.addEventListener('click', (e) => {
+			if(otherColorBtn.classList.contains('active')) {
+				otherColorBtn.classList.remove('active')
+			} else {
+				otherColorBtn.classList.add('active')
+				checkListArr.forEach((item) => {
+					item.checked = false
+				})
+			}
+		})
+	}
 }
 
+document.querySelectorAll('.scroll-wrapper').forEach(el => {
+	new SimpleBar(el, {
+		autoHide: false
+	})
+});
 
 
+
+
+document.addEventListener("DOMContentLoaded", function() {
+	const loader = document.querySelector('.loader_w')
+	setTimeout(() => {
+		loader.classList.add('complete')
+	}, 500)
+});
+
+
+// Для реализации картинки в 360 можно использовать этот плагин https://github.com/scaleflex/js-cloudimage-360-view
 
 
 

@@ -10,12 +10,18 @@ html(lang="en")
 	head
 		+head(array)
 	body(class= array.body_class)
-		include global/header
-		.wrapper(class= array.layout_mod)
-			.base(class= array.layout_mod)
-				block content_block
-			include global/footer
-		+scripts
-		block local_popup
-			include global/popup
-			include global/alert
+		.loader_w 
+			.loader 
+				.inner.one
+				.inner.two
+				.inner.three
+		.scroll-wrapper
+			include global/header
+			.wrapper(class= array.layout_mod)
+				.base(class= array.layout_mod)
+					block content_block
+				include global/footer
+			+scripts
+			block local_popup
+				include global/popup
+				include global/alert

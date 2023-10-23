@@ -1,3 +1,20 @@
+.home-main {
+  position: relative;
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../i/home-bg.png');
+    background-repeat: no-repeat;
+    content: '';
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
 .hero {
   position: relative;
   z-index: 4;
@@ -11,6 +28,10 @@
     background: url('../../i/hero.png') center/cover no-repeat;
     content: '';
     pointer-events: none;
+    @include bp($point_2) {
+      top: - $header_mob;
+      height: calc(100% + $header_mob);
+    }
   }
   
   &:after {
@@ -22,11 +43,19 @@
     background: rgba(255, 255, 255, 0.07);
     content: '';
     z-index: 1;
+    @include bp($point_2) {
+      top: - $header_mob;
+      height: calc(100% + $header_mob);
+    }
   }
 
   h1 {
     font-size: 4.6rem;
     font-weight: 300;
+
+    @include bp($point_5) {
+      font-size: 3.2rem;
+    }
   }
 }
 
@@ -38,12 +67,23 @@
   &>p {
     color: $white-8;
     padding: 4rem 0;
+
+    @include bp($point_5) {
+      padding: 3rem 0;
+    }
   }
 }
 
 
+
+
 .hero_main {
   padding: 17.8rem 0 25.5rem;
+  
+  @include bp($point_2) {
+    padding: 10rem 0 10rem 0;
+    min-height: 100vh;
+  }
 }
 
 .hero_main__price {
@@ -51,12 +91,15 @@
   // font-weight: 400;
   font-size: 4.2rem;
   font-family: $font_5;
+
+
+  @include bp($point_5) {
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+  }
   span {
     color: $orange;
-    // font-weight: 300;
     position: relative;
-    // display: inline-flex;
-    // align-items: center;
     &:after {
       content: ' ₽';
       font-family: $font_2;
@@ -81,6 +124,11 @@
     padding: 1.2rem 4rem 1.2rem 1.2rem;
     font-family: $font_2;
     height: 6.5rem;
+    @include bp($point_2) {
+      font-size: 1.6rem;
+      padding: 1.5rem 2rem;
+      height: 5rem;
+    }
 
     &:hover {
       border-color: $orange;
@@ -99,12 +147,19 @@
   border-radius: 100%;
   margin-right: 2.5rem;
   transition: all .3s ease;
+
+  @include bp($point_2) {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 2rem;
+  }
 }
 
 .content-block {
   position: relative;
-  padding: 20rem 0 20.6rem 0;
   z-index: 2;
+
+
 
 
   &:before {
@@ -117,25 +172,55 @@
     position: absolute;
     top: 12.9rem;
     right: 0;
+
+    @include bp($point_5) {
+      font-size: 10rem;
+      top: 0;
+      left: 0;
+      right: auto
+    }
   }
 }
 
 .content_block__main {
   @include flex-start;
   align-items: flex-start;
-
+  flex-wrap: wrap;
+  padding: 20rem 0 20.6rem 0;
+  @include bp($point_2) {
+    padding: 10rem 0 15rem 0;
+  }
   &>div {
-    width: 50%;
+    width: 47%;
+
+    @include bp($point_2) {
+      width: 100%;
+    }
   }
 }
 
 .content_block__img {
   max-width: 64.5rem;
   margin-right: 6rem;
+  @include bp($point_2) {
+    max-width: 100%;
+    margin: 0 0 3rem 0;
+  }
+
+  @include bp($point_5) {
+    max-width: 100%;
+  }
 
   img {
     overflow: hidden;
     border-radius: 4rem;
+    @include bp($point_2) {
+      width: auto;
+    }
+    @include bp($point_5) {
+      width: 100%;
+      border-radius: 2rem;
+    }
   }
 }
 
@@ -143,6 +228,10 @@
   h2 {
     font-size: 4rem;
     font-weight: 300;
+    @include bp($point_2) {
+      max-width: 60rem;
+      font-size: 3rem;
+    }
   }
 
   .txt {
@@ -158,9 +247,16 @@
   &>ul {
     @include flex-start;
     margin: -2.5rem -2.5rem 0 0;
+    @include bp($point_5) {
+      position: relative;
+    }
     li {
       padding: 2.5rem 2.5rem 0 0;
       position: relative;
+
+      @include bp($point_5) {
+        position: static;
+      }
 
       .icons  {
         width: 6.5rem;
@@ -214,6 +310,24 @@
         top: calc(100% + .6rem);
         left: 50%;
         transform: translateX(-50%);
+        @include bp($point_2) {
+          transform: translateX(0%);
+          left: 0;
+          border-radius: 1rem;
+          font-size: 1.4rem;
+          padding: .9rem 1rem;
+          min-width: 17rem;
+        }
+
+        @include bp($point_5) {
+          min-width: auto;
+          width: 100%;
+          top: calc(100% + 2rem);
+          left: 0;
+          right: auto;
+          transform: translateX(0);
+          max-width: calc(100% - 4rem);
+        }
       }
 
       &:hover {
@@ -230,6 +344,13 @@
   @include flex-space;
   font-size: 4rem;
   margin-bottom: 5rem;
+  position: relative;
+  z-index: 11;
+
+  @include bp($point_5) {
+    margin-bottom: 2rem;
+    font-size: 3.6rem;
+  }
   h3 {
     font-weight: 300;
   }
@@ -237,6 +358,10 @@
 
 .adv_nav, .gallery_nav {
   @include flex-end;
+
+  @include bp($point_5) {
+    display: none;
+  }
 
   &>div {
     width: 6rem;
@@ -251,6 +376,16 @@
     font-size: 2.4rem;
     box-shadow: $shadow-sm;
     cursor: pointer;
+
+    @include bp($point_2) {
+      width: 5rem;
+      height: 5rem;
+      font-size: 2rem;
+    }
+
+    @include bp($point_5) {
+      border-radius: 2rem;
+    }
     svg {
       position: relative;
       z-index: 11;
@@ -288,12 +423,19 @@
     background: linear-gradient(-90deg, rgba(27,27,27,0) 0%, rgba(27,27,27,1) 100%);
     content: '';
     z-index: 2;
+
+    @include bp($point_5) {
+      width: 10rem;
+    }
   }
 }
 
 .adv_main {
   position: relative;
   margin-bottom: 20rem;
+  @include bp($point_2) {
+    margin-bottom: 10rem;
+  }
 }
 
 .adv_slide__img {
@@ -314,15 +456,31 @@
   background: rgba(255, 255, 255, 0.07);
   padding: 4rem 4rem 8.2rem 4rem;
 
+  @include bp($point_5) {
+    padding: 2rem 2rem 4rem 2rem;
+  }
+
   h3 {
     margin-bottom: 2rem;
     font-family: $font_3;
     font-weight: 500;
+
+    @include bp($point_2) {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    @include bp($point_5) {
+      font-size: 2rem;
+    }
   }
 
   p {
     font-size: 1.8rem;
     color: $white-8;
+    @include bp($point_5) {
+      font-size: 1.6rem;
+    }
   }
 }
 
@@ -330,16 +488,35 @@
   text-align: center;
   position: relative;
   margin-bottom: 20rem;
+  max-width: 126.1rem;
+  @include bp($point_2) {
+    margin-bottom: 10rem;
+  }
   h4 {
     text-align: left;
     max-width: 117rem;
     font-size: 4rem;
     font-weight: 300;
     margin-bottom: 6.8rem;
+    @include bp($point_2) {
+      font-size: 2.8rem;
+      text-align: center;
+      max-width: 60rem;
+      margin: 0 auto 5rem auto;
+    }
   }
 
   .btn {
     display: inline-flex;
+  }
+}
+
+.arrow-decorator {
+  position: absolute;
+  top: 7rem;
+  right: 0;
+  @include bp($point_2) {
+    display: none;
   }
 }
 
@@ -348,6 +525,10 @@
     font-size: 4rem;
     font-weight: 300;
     margin-bottom: 5rem;
+
+    @include bp($point_2) {
+      font-size: 2.8rem;
+    }
   }
 }
 
@@ -357,9 +538,20 @@
   grid-gap: 4rem;
   position: relative;
   z-index: 11;
+  
+  @include bp($point_2) {
+    grid-gap: 2rem;
+  }
+  
+  @include bp($point_5) {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
 
   &:not(:last-child) {
     margin-bottom: 5rem;
+    @include bp($point_2) {
+    margin-bottom: 3rem;
+    }
   }
 }
 
@@ -367,12 +559,24 @@
   border-radius: 3rem;
   background: rgba(255, 255, 255, 0.07);
   padding: 5rem;
+  @include bp($point_2) {
+    padding: 2rem 2rem;
+    border-radius: 1.5rem;
+  }
 
   h4 {
     font-size: 2.6rem;
     font-family: $font_2;
     font-weight: 500;
     margin-bottom: 3.5rem;
+    @include bp($point_2) {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    @include bp($point_5) {
+      font-size: 2.2rem;
+    }
   }
 
   ul {
@@ -382,6 +586,15 @@
     grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
     grid-gap: 2rem;
     margin-bottom: 2rem;
+    @include bp($point_2) {
+      grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+      grid-gap: .5rem;
+      padding-bottom: 2rem;
+      margin-bottom: 1rem;
+    }
+    @include bp($point_5) {
+      grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    }
     li {
 
       span {
@@ -390,14 +603,33 @@
         margin-bottom: 1.3rem;
         font-weight: 300;
         font-size: 1.8rem;
+        @include bp($point_2) {
+          font-size: 1.4rem;
+          margin-bottom: 0.5rem;
+        }
+
+        @include bp($point_5) {
+          font-size: 1.4rem;
+        }
       }
       p {
         font-size: 2.4rem;
         font-family: $font_3;
         font-weight: 500;
+        @include bp($point_2) {
+          font-size: 1.8rem;
+          
+        }
+        @include bp($point_5) {
+          font-size: 1.4rem;
+        }
       }
     }
   }
+}
+
+.moto_main__itemImg {
+  
 }
 
 .moto_main__itemPrice {
@@ -406,22 +638,59 @@
   font-family: $font_4;
   font-weight: 600;
   margin-bottom: 3rem;
+  @include bp($point_2) {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .moto_main__itemGroup {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-wrap: wrap;
 
+
+  @include bp($point_5) {
+    flex-direction: column;
+  }
+
+  .transparent {
+    @include bp($point_5) {
+      height: 5rem;
+    }
+  }
   &>div {
+    button {
+      @include bp($point_5) {
+        width: 100%;
+      }
+    }
+    @include bp($point_5) {
+      width: 100%;
+    }
     &:first-child {
       margin-right: 2rem;
+      @include bp($point_2) {
+        margin-right: 1rem;
+      }
+
+      @include bp($point_5) {
+        margin: 0 0 1rem 0;
+      }
     }
   }
 }
 
 .moto_main__list {
   margin-bottom: 38.9rem;
+  @include bp($point_2) {
+    margin-bottom: 25rem;
+  }
+
+  @include bp($point_5) {
+    margin-bottom: 15rem;
+  }
 }
 
 .present {
@@ -433,6 +702,11 @@
   align-items: flex-start;
   position: relative;
   margin-bottom: 43rem;
+  
+  @include bp($point_2) {
+    overflow: hidden;
+    margin-bottom: 15rem;
+  }
 
   &:before {
     content: 'uran';
@@ -443,15 +717,27 @@
     text-transform: uppercase;
     opacity: .05;
     bottom: -5.7rem;
+
+    @include bp($point_2) {
+      font-size: 15rem;
+      bottom: -5rem;
+    }
   }
 
   h5 {
     font-size: 4rem;
     font-weight: 300;
+
+    @include bp($point_2) {
+      font-size: 2.8rem;
+    }
   }
 
   p {
     padding: 3rem 0 5rem 0;
+    @include bp($point_2) {
+      padding: 2rem 0 3rem 0;
+    }
   }
 
   .btn {
@@ -463,10 +749,29 @@
   max-width: 58.7rem;
   margin-right: 6rem;
   padding-top: 12rem;
+
+  @include bp($point_2) {
+    max-width: 70%;
+    margin-right: 3rem;
+    padding: 6rem 0;
+  }
+
+  @include bp($point_5) {
+    max-width: 100%;
+    margin-right: 0;
+  }
 }
 
 .present_main__motoGroup {
   margin: -14rem 0;
+
+  @include bp($point_2) {
+    margin: 0 0;
+  }
+
+  @include bp($point_5) {
+    display: none;
+  }
 }
 
 .gallery-slider {
@@ -479,6 +784,7 @@
       position: relative;
       transform: scaleY(.8);
       transition: all .3s ease;
+      pointer-events: none;
       &:before {
         transition: all .3s ease;
         position: absolute;
@@ -493,6 +799,9 @@
       }
       
       height: 53.7rem;
+      @include bp($point_2) {
+        height: 30rem;
+      }
       img {
         border-radius: 3rem;
         height: 100%;
@@ -503,6 +812,7 @@
     
     &-active {
       .gallery-slide {
+        pointer-events: all;
         transform: scaleY(1);
         &:before {
           opacity: 0;
@@ -515,14 +825,24 @@
 
 .gallery_main {
   margin-bottom: 20rem;
+
+  @include bp($point_5) {
+    margin-bottom: 10rem;
+  }
 }
 
 .videoreview_main {
   margin-bottom: 20rem;
+  @include bp($point_2) {
+    margin-bottom: 13rem;
+  }
   h5 {
     font-size: 4rem;
     font-weight: 300;
     margin-bottom: 5rem;
+    @include bp($point_2) {
+      font-size: 2.8rem;
+    }
   }
 }
 
@@ -530,12 +850,26 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
   grid-gap: 4rem;
+  @include bp($point_2) {
+    grid-gap: 1.5rem;
+  }
+  
+  @include bp($point_5) {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
 
   li {
     p {
       font-size: 2.4rem;
       font-family: $font_3;
       font-weight: 500;
+      @include bp($point_2) {
+        font-size: 2rem;
+      }
+
+      @include bp($point_5) {
+        font-size: 1.8rem;
+      }
     }
 
     &:hover {
@@ -555,15 +889,26 @@
   overflow: hidden;
   margin-bottom: 2rem;
   height: 37.4rem;
+  @include bp($point_2) {
+    height: auto;
+    border-radius: 0;
+  }
   a {
     @include flex-center;
     width: 100%;
     height: 100%;
+    @include bp($point_2) {
+      height: auto
+    }
   }
   img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    @include bp($point_2) {
+      height: auto;
+      border-radius: 1rem;
+    }
   }
 
   &:before {
@@ -605,13 +950,23 @@
   position: relative;
   padding: 12rem 0 10.8rem 0;
   margin-bottom: 32rem;
+  @include bp($point_2) {
+    padding: 7rem 0 7rem 0;
+    margin-bottom: 12rem;
+  }
 }
 
 .action_main__title {
   margin-bottom: 5rem;
+  @include bp($point_2) {
+    margin-bottom: 3rem;
+  }
   h5 {
     font-size: 4rem;
     font-weight: 300;
+    @include bp($point_2) {
+      font-size: 2.8rem;
+    }
   }
 }
 
@@ -619,22 +974,36 @@
   @include flex-start;
   flex-wrap: wrap;
   margin-bottom: 10.1rem;
+  z-index: 11;
+  position: relative;
+
 
   .form_notice {
     font-size: 1.6rem;
     color: rgba(255, 255, 255, 0.5);
+
+    @include bp($point_2) {
+      width: 100%;
+    }
     a {
       color: $white;
       opacity: .5;
       border-bottom: .1rem solid rgba(255, 255, 255, 0.5);
     }
   }
-
+  
   .default-btn {
     flex-grow: 1;
+    margin-bottom: 2.5rem;
     input {
       width: 100%;
       cursor: pointer;
+      height: 6.9rem;
+      @include bp($point_2) {
+        height: 6rem;
+        padding: 1.5rem 3rem;
+        font-size: 1.6rem;
+      }
     }
   }
   .action_main__formGroup {
@@ -643,6 +1012,15 @@
     grid-gap: 2rem;
     max-width: 99.2rem;
     margin: 0 3rem 2.5rem 0;
+    
+    @include bp($point_2) {
+      max-width: 70%;
+    }
+    
+    @include bp($point_5) {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      max-width: 100%
+    }
 
     input {
       @include app;
@@ -653,6 +1031,13 @@
       padding: 2.2rem 3rem;
       width: 100%;
       font-family: $font_2;
+      height: 6.9rem;
+
+      @include bp($point_2) {
+        height: 6rem;
+        padding: 1.5rem 3rem;
+        font-size: 1.6rem;
+      }
 
       &::-webkit-input-placeholder {
         color: $white;
@@ -706,6 +1091,11 @@
   right: 0;
   bottom: -18.3rem;
   width: 96.3rem;
+
+  @include bp($point_2) {
+    max-width: 50rem;
+    bottom: 0;
+  }
 }
 
 .faq_main {
@@ -713,6 +1103,9 @@
     font-size: 4rem;
     font-weight: 300;
     margin-bottom: 5rem;
+    @include bp($point_2) {
+      font-size: 2.8rem;
+    }
   }
 }
 
@@ -723,6 +1116,16 @@
   background: rgba(255, 255, 255, 0.07);
   padding: 2.2rem 3rem;
   position: relative;
+  @include bp($point_2) {
+    font-size: 1.8rem;
+  }
+
+  @include bp($point_5) {
+    font-size: 1.6rem;
+    border-radius: 3rem;
+    padding: 1.5rem 2rem;
+    padding-right: 4rem;
+  }
 }
 
 .faq_main__listItem {
@@ -744,12 +1147,27 @@
   border-radius: 100%;
   cursor: pointer;
   font-size: 2.5rem;
+  @include bp($point_2) {
+    font-size: 2.2rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  @include bp($point_5) {
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+  }
 }
 
 .faq_main__itemContent {
   display: none;
   padding: 3rem 3rem 1rem 3rem;
   font-size: 1.8rem;
+
+  @include bp($point_5) {
+    font-size: 1.4rem;
+  }
 }
 
 .faq_main__listItem  {

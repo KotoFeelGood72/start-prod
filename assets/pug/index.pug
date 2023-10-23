@@ -3,201 +3,206 @@ extends _layout
 block vars
 	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'HOME'}
 block content_block
-	section.hero 
-		.section_in 
-			.hero_main
-				.hero_main__content 
-					h1!='Откройте новый мир <span>с вездеходами</span> Uran'
-					p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					.hero_main__price!='от <span> 1 330 000</span>'
-					.hero_main__group
-						div
-							+btn({ btn: 'Получить консультацию', class: 'red' })
-						div
-							.hero_main__configuratorLink 
-								a(href="#")
-									.hero_main__configuratorLinkIcon
-										+iconify({ icon: 'ph:plus-light' })
-									p Конфигуратор
-	section.content-block 
-		.section_in 
-			.content_block__main
-				.content_block__img 
-					img(src="i/content/moto.jpg", alt="")
-				.content_block__txt 
-					h2!='Производим мощные и надежные <span>вездеходы Uran</span>'
-					.txt
-						p Мы специализируемся на производстве уникальных транспортных средств - вездеходов на шинах низкого давления Уран.
-						p Они предназначены для передвижения по самым сложным и бездорожным местностям, включая снежные поля, болотистые участки и пересеченную местность.
-					ul 
-						li 
-							.content_block__icon 
-								+iconify({
-									icon: 'game-icons:snowflake-2'
-								})
-							p Передвигается по снежной местности
-						li 
-							.content_block__icon 
-								+iconify({
-									icon: 'game-icons:mountain-road'
-								})
-							p Передвигается по снежной местности
-						li 
-							.content_block__icon 
-								+iconify({
-									icon: 'game-icons:swamp'
-								})
-							p Передвигается по снежной местности
-						li 
-							.content_block__icon 
-								+iconify({
-									icon: 'game-icons:trail'
-								})
-							p Передвигается по снежной местности
-	section.adv 
-		.section_in 
-			.adv_main 
-				.adv_head 
-					h3!='Преимущества вездеходов <span>Uran</span>'
-					.adv_nav 
-						.adv_prev 
-							+iconify({
-								icon: 'iconoir:arrow-left'
-							})
-						.adv_next 
-							+iconify({
-								icon: 'iconoir:arrow-right'
-							})
-				.adv-slider.swiper 
-					.swiper-wrapper
-						-for(i = 0; i < 8; i++) 
-							.swiper-slide 
-								.adv-slide 
-									.adv_slide__img 
-										img(src=`i/adv/adv_${i}.jpg`, alt="")
-									.adv_slide__content 
-										h3 АКПП Aisin® c проходным валом
-										p Чрезвычайно надежный и выносливый четырехступенчатый гидроавтомат Aisin — еще одно достоинство, которым обладает РБМоторс® Атлет. Разработанный нашими инженерами проходной вал крепко и надежно передает момент вращения на карданные валы.
-					.adv-pugination.global-pagination 
-	section.quote 
-		.section_in 
-			.quote_main 
-				h4!='Охота, рыбалка, поездки с семьей на природу или экстремальные поездки вы <span>воплотите с нашими вездеходами.</span>'
-				+btn({btn: 'Получить консультацию'})
-	section.moto
-		.section_in 
-			.moto_main 
-				h4!='Виды <span>квадроциклов</span>'
-				ul.moto_main__list 
-					- let motoListName = ['Uran Classic', 'Uran Comfort', 'Uran Comfort +', 'Uran Ultra']
-					-for(i = 0; i < motoListName.length; i++)
-						li.moto_main__item 
-							.moto_main__itemImg 
-								img(src="i/moto.png", alt="")
-							.moto_main__itemContent 
-								h4=motoListName[i]
-								ul 
-									li 
-										span Вес
-										p 750 кг
-									li 
-										span Скорость
-										p 80 км/час
-									li 
-										span Грузоподъемность
-										p 600 кг
-								.moto_main__itemPrice от 1 190 000 ₽
-								.moto_main__itemGroup 
-									+btn({btn: 'Заказать сейчас', class: 'red'})
-									+btn({link: 'Подробнее', class: 'transparent'})
-	section.present 
-		.section_in 
-			.present_main 
-				.present_main__content 
-					h5!='Соберите комплектацию с помощью <span>конфигуратора</span>'
-					p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					+btn({btn: 'Открыть конфигуратор', class: 'red'})
-				.present_main__motoGroup 
-					img(src="i/moto-group.png", alt="")
-	section.gallery 
-		.section_in 
-			.gallery_main 
-				.gallery_head 
-					h3!='Посмотрите нашу <span>фотогалерею</span>'
-					.gallery_nav 
-						.gallery_prev 
-							+iconify({
-								icon: 'iconoir:arrow-left'
-							})
-						.gallery_next 
-							+iconify({
-								icon: 'iconoir:arrow-right'
-							})
-				.gallery-slider.swiper 
-					.swiper-wrapper
-						-for(i = 0; i < 3; i++) 
-							.swiper-slide 
-								.gallery-slide
-									a(href=`i/gallery/gallery_${i}.jpg`)
-										img(src=`i/gallery/gallery_${i}.jpg`, alt="") 
-					.gallery-pugination.global-pagination
-	section.videoreview 
-		.section_in 
-			.videoreview_main 
-				h5!='Видеообзоры <span>вездеходов</span>'
-				ul.videoreview__list
-					-for(i = 0; i < 4; i++)
-						li.videoreview_item
-							.videoreview_item__img 
-								a(href="#")
-									img(src="i/videoreview.jpg", alt="")
-									.play-icon 
-										+iconify({
-											icon: 'fluent:triangle-right-12-filled'
-										})
-							p Текст - Название видео
-	section.action 
-		.section_in 
-			.action_main 
-				.action_main__title 
-					h5!='Бесплатная консультация по подбору вашего идеального <span>вездехода Uran</span>'
-				.action_main__form
-					.action_main__formGroup
-						+input({
-							place: 'Ваше имя'
-						})
-						+input({
-							place: 'Ваш телефон',
-							type: 'tel'
-						})
-					+input({submit: 'Оставить заявку', class: 'default-btn'})
-					.form_notice!='Отправляя форму, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности.</a>'
-				.action_main__bottom 
-					ul 
-						each item in ['+7 000 000 00 00', '+7 000 000 00 00']
+	.home-main
+		section.hero 
+			.section_in 
+				.hero_main
+					.hero_main__content 
+						h1!='Откройте новый мир <span>с вездеходами</span> Uran'
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						.hero_main__price!='от <span> 1 330 000</span>'
+						.hero_main__group
+							div
+								+btn({ btn: 'Получить консультацию', class: 'red' })
+							div
+								.hero_main__configuratorLink 
+									a(href="#")
+										.hero_main__configuratorLinkIcon
+											+iconify({ icon: 'ph:plus-light' })
+										p Конфигуратор
+		section.content-block 
+			.section_in 
+				.content_block__main
+					.content_block__img 
+						img(src="i/content/moto.jpg", alt="")
+					.content_block__txt 
+						h2!='Производим мощные и надежные <span>вездеходы Uran</span>'
+						.txt
+							p Мы специализируемся на производстве уникальных транспортных средств - вездеходов на шинах низкого давления Уран.
+							p Они предназначены для передвижения по самым сложным и бездорожным местностям, включая снежные поля, болотистые участки и пересеченную местность.
+						ul 
 							li 
-								a(href="#")
+								.content_block__icon 
 									+iconify({
-										icon: 'solar:phone-linear'
+										icon: 'game-icons:snowflake-2'
 									})
-									p=item 
-					.action_main__bottomImg 
-						img(src="i/form_img.png", alt="")
-	section.faq 
-		.section_in 
-			.faq_main 
-				h6!='Ответы на <span>вопросы</span>'
-				ul.faq_main__list 
-					-for(i = 0; i < 4; i++)
-						li.faq_main__listItem
-							.faq_main__itemHead 
-								p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor?
-								.faq_main__itemIcon 
+								p Передвигается по снежной местности
+							li 
+								.content_block__icon 
 									+iconify({
-										icon: 'ph:plus-light'
+										icon: 'game-icons:mountain-road'
 									})
+								p Передвигается по снежной местности
+							li 
+								.content_block__icon 
 									+iconify({
-										icon: 'ph:minus-light'
+										icon: 'game-icons:swamp'
 									})
-							.faq_main__itemContent 
-								p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+								p Передвигается по снежной местности
+							li 
+								.content_block__icon 
+									+iconify({
+										icon: 'game-icons:trail'
+									})
+								p Передвигается по снежной местности
+		section.adv 
+			.section_in 
+				.adv_main 
+					.adv_head 
+						h3!='Преимущества вездеходов <span>Uran</span>'
+						.adv_nav 
+							.adv_prev 
+								+iconify({
+									icon: 'iconoir:arrow-left'
+								})
+							.adv_next 
+								+iconify({
+									icon: 'iconoir:arrow-right'
+								})
+					.adv-slider.swiper 
+						.swiper-wrapper
+							-for(i = 0; i < 8; i++) 
+								.swiper-slide 
+									.adv-slide 
+										.adv_slide__img 
+											img(src=`i/adv/adv_${i}.jpg`, alt="")
+										.adv_slide__content 
+											h3 АКПП Aisin® c проходным валом
+											p Чрезвычайно надежный и выносливый четырехступенчатый гидроавтомат Aisin — еще одно достоинство, которым обладает РБМоторс® Атлет. Разработанный нашими инженерами проходной вал крепко и надежно передает момент вращения на карданные валы.
+						.adv-pugination.global-pagination 
+		section.quote 
+			.section_in 
+				.quote_main 
+					h4!='Охота, рыбалка, поездки с семьей на природу или экстремальные поездки вы <span>воплотите с нашими вездеходами.</span>'
+					+btn({btn: 'Получить консультацию'})
+					.arrow-decorator 
+						<svg width="375" height="195" viewBox="0 0 375 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0.286876 186.299C-0.100297 186.693 -0.0948852 187.326 0.298962 187.713L6.71708 194.022C7.11093 194.41 7.74407 194.404 8.13124 194.01C8.51842 193.617 8.513 192.983 8.11916 192.596L2.41416 186.988L8.02246 181.283C8.40963 180.889 8.40422 180.256 8.01038 179.869C7.61653 179.482 6.98339 179.487 6.59621 179.881L0.286876 186.299ZM249.958 1.9991C279.401 3.24668 303.397 7.0319 322.126 12.6893C340.865 18.35 354.263 25.865 362.585 34.5242C370.879 43.1544 374.144 52.9271 372.655 63.2596C371.158 73.6392 364.843 84.7176 353.694 95.8421C331.391 118.095 290.028 140.246 230.771 157.032C171.54 173.809 94.5183 185.201 0.991453 186L1.00855 188C94.6817 187.199 171.885 175.791 231.316 158.956C290.722 142.129 332.458 119.855 355.106 97.2579C366.432 85.9574 373.054 74.5045 374.634 63.545C376.221 52.5385 372.702 42.1644 364.027 33.1383C355.381 24.1413 341.626 16.4907 322.704 10.7748C303.771 5.0556 279.599 1.25332 250.042 0.000896513L249.958 1.9991Z" fill="white" fill-opacity="0.5"/>
+						</svg>
+		section.moto
+			.section_in 
+				.moto_main 
+					h4!='Виды <span>квадроциклов</span>'
+					ul.moto_main__list 
+						- let motoListName = ['Uran Classic', 'Uran Comfort', 'Uran Comfort +', 'Uran Ultra']
+						-for(i = 0; i < motoListName.length; i++)
+							li.moto_main__item 
+								.moto_main__itemImg 
+									img(src="i/moto.png", alt="")
+								.moto_main__itemContent 
+									h4=motoListName[i]
+									ul 
+										li 
+											span Вес
+											p 750 кг
+										li 
+											span Скорость
+											p 80 км/час
+										li 
+											span Грузоподъемность
+											p 600 кг
+									.moto_main__itemPrice от 1 190 000 ₽
+									.moto_main__itemGroup 
+										+btn({btn: 'Заказать сейчас', class: 'red'})
+										+btn({link: 'Подробнее', class: 'transparent'})
+		section.present 
+			.section_in 
+				.present_main 
+					.present_main__content 
+						h5!='Соберите комплектацию с помощью <span>конфигуратора</span>'
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						+btn({link: 'Открыть конфигуратор', class: 'red'})
+					.present_main__motoGroup 
+						img(src="i/moto-group.png", alt="")
+		section.gallery 
+			.section_in 
+				.gallery_main 
+					.gallery_head 
+						h3!='Посмотрите нашу <span>фотогалерею</span>'
+						.gallery_nav 
+							.gallery_prev 
+								+iconify({
+									icon: 'iconoir:arrow-left'
+								})
+							.gallery_next 
+								+iconify({
+									icon: 'iconoir:arrow-right'
+								})
+					.gallery-slider.swiper 
+						.swiper-wrapper
+							-for(i = 0; i < 3; i++) 
+								.swiper-slide 
+									.gallery-slide
+										a(href=`i/gallery/gallery_${i}.jpg` data-fancybox)
+											img(src=`i/gallery/gallery_${i}.jpg`, alt="") 
+						.gallery-pugination.global-pagination
+		section.videoreview 
+			.section_in 
+				.videoreview_main 
+					h5!='Видеообзоры <span>вездеходов</span>'
+					ul.videoreview__list
+						-for(i = 0; i < 4; i++)
+							li.videoreview_item
+								.videoreview_item__img 
+									a(href="#")
+										img(src="i/videoreview.jpg", alt="")
+										.play-icon 
+											+iconify({
+												icon: 'fluent:triangle-right-12-filled'
+											})
+								p Текст - Название видео
+		section.action 
+			.section_in 
+				.action_main 
+					.action_main__title 
+						h5!='Бесплатная консультация по подбору вашего идеального <span>вездехода Uran</span>'
+					.action_main__form
+						.action_main__formGroup
+							+input({
+								place: 'Ваше имя'
+							})
+							+input({
+								place: 'Ваш телефон',
+								type: 'tel'
+							})
+						+input({submit: 'Оставить заявку', class: 'default-btn'})
+						.form_notice!='Отправляя форму, вы соглашаетесь <a href="#" target="_blank">с политикой конфиденциальности.</a>'
+					.action_main__bottom 
+						ul 
+							each item in ['+7 000 000 00 00', '+7 000 000 00 00']
+								li 
+									a(href="#")
+										+iconify({
+											icon: 'solar:phone-linear'
+										})
+										p=item 
+						.action_main__bottomImg 
+							img(src="i/form_img.png", alt="")
+		section.faq 
+			.section_in 
+				.faq_main 
+					h6!='Ответы на <span>вопросы</span>'
+					ul.faq_main__list 
+						-for(i = 0; i < 4; i++)
+							li.faq_main__listItem
+								.faq_main__itemHead 
+									p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor?
+									.faq_main__itemIcon 
+										+iconify({
+											icon: 'ph:plus-light'
+										})
+										+iconify({
+											icon: 'ph:minus-light'
+										})
+								.faq_main__itemContent 
+									p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

@@ -15,7 +15,7 @@ var gulp = require('gulp'),
 	sourcemaps = require('gulp-sourcemaps'),
 	postcss = require('gulp-postcss'),
 	assets = require('postcss-assets'),
-	notify = require('gulp-notify')
+	notify = require('gulp-notify'),
 	cache = require('gulp-cache');
 
 let productionStatus;
@@ -181,7 +181,6 @@ var plugins = {
 			server: {
 				baseDir: outputDir,
 			},
-			tunnel: 'arkada',
 		},
 	},
 };
@@ -201,24 +200,24 @@ gulp.task('cleanBuildDir', function (cb) {
 });
 
 //minify images
-gulp.task('imgBuild', function () {
-	return gulp
-		.src([outputDir + 'i/**/*', '!' + outputDir + 'i/sprite/**/*'])
-		.pipe(
-			image({
-				pngquant: true,
-				optipng: false,
-				zopflipng: true,
-				jpegRecompress: false,
-				mozjpeg: true,
-				gifsicle: true,
-				svgo: false,
-				concurrent: 10,
-				quiet: false, // defaults to false
-			})
-		)
-		.pipe(gulp.dest(buildDir + 'i/'));
-});
+// gulp.task('imgBuild', function () {
+// 	return gulp
+// 		.src([outputDir + 'i/**/*', '!' + outputDir + 'i/sprite/**/*'])
+// 		.pipe(
+// 			image({
+// 				pngquant: true,
+// 				optipng: false,
+// 				zopflipng: true,
+// 				jpegRecompress: false,
+// 				mozjpeg: true,
+// 				gifsicle: true,
+// 				svgo: false,
+// 				concurrent: 10,
+// 				quiet: false, // defaults to false
+// 			})
+// 		)
+// 		.pipe(gulp.dest(buildDir + 'i/'));
+// });
 
 gulp.task('imgMinify', function () {
 	return gulp
@@ -405,7 +404,7 @@ let taskArray = {
 		'set-prod-node-env',
 		'pug',
 		gulp.parallel(
-			'imgBuild',
+			// 'imgBuild',
 			'fontsBuild',
 			'htmlBuild',
 			'jsBuild',

@@ -1,7 +1,7 @@
 mixin btn(data)
   .btn.default-btn(class=data.class)
     if data.btn 
-      button(type="button")=data.btn
+      button(type="button" data-target="form" class="trigger")=data.btn
     else if data.submit 
       input(type="submit" value=data.submit)
     else 

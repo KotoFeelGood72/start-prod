@@ -1,15 +1,29 @@
 .footer {
   background: rgba(255, 255, 255, 0.07);
   margin-top: 15rem;
+
+  @include bp($point_5) {
+    margin-top: 10rem;
+  }
 }
 
 .footer_main {
   padding: 8rem 0 5rem 0;
+  
 
   h6 {
     font-size: 4rem;
     font-weight: 300;
     margin-bottom: 5rem;
+
+    @include bp($point_2) {
+      font-size: 2.8rem;
+      margin-bottom: 3rem;
+    }
+
+    @include bp($point_5) {
+      font-size: 2.4rem;
+    }
   }
 }
 
@@ -21,8 +35,14 @@
   margin: -2.5rem -2.5rem 0 0;
   @include flex-start;
   flex-wrap: wrap;
+  @include bp($point_2) {
+    margin: -1.5rem -1.5rem 0 0;
+  }
   li {
     padding: 2.5rem 2.5rem 0 0;
+    @include bp($point_2) {
+      padding: 1.5rem 1.5rem 0 0;
+    }
     a {
       width: 4.9rem;
       height: 4.9rem;
@@ -31,6 +51,11 @@
       @include flex-center;
       font-size: 2.5rem;
       transition: all .3s ease;
+      @include bp($point_2) {
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+      }
       &:hover {
         color: $orange
       }
@@ -42,6 +67,10 @@
   @include flex-start;
   align-items: flex-start;
   margin: -3rem -15rem 5rem 0;
+  flex-wrap: wrap;
+  @include bp($point_2) {
+    margin: -2rem -5rem 3rem 0;
+  }
   a {
     transition: all .3s ease;
     &:hover {
@@ -53,6 +82,9 @@
   }
   &>li {
     padding: 3rem 15rem 0 0;
+    @include bp($point_2) {
+      padding: 2rem 5rem 0 0;
+    }
   }
 }
 
@@ -62,17 +94,40 @@
     opacity: .5;
     display: block;
     margin-bottom: 3rem;
+    @include bp($point_2) {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
   }
 
   ul {
     li {
+      @include bp($point_2) {
+        font-size: 1.6rem;
+      }
       &:not(:last-child) {
         margin-bottom: 2rem;
+        @include bp($point_2) {
+          margin-bottom: 1rem;
+        }
       }
       a {
         @include flex-start;
         font-size: 2.2rem;
         font-family: $font_3;
+        @include bp($point_2) {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}
+
+.footer_main__listItem {
+  &:first-child {
+    ul {
+      @include bp($point_2) {
+        margin-top: -0.3rem;
       }
     }
   }
@@ -85,6 +140,11 @@
   background-color: #ED3336;
   border-radius: 100%;
   margin-right: 2rem;
+
+  @include bp($point_2) {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 
@@ -93,6 +153,14 @@
   border-top: .1rem solid rgba(255, 255, 255, 0.20);
   padding: 1.9rem 0 2.3rem 0;
   font-size: 1.6rem;
+  @include bp($point_2) {
+    padding: 1rem 0 1rem 0;
+    font-size: 1.2rem;
+  }
+
+  @include bp($point_5) {
+    flex-direction: column;
+  }
   a {
     transition: all .3s ease;
     &:hover {
@@ -100,6 +168,17 @@
     }
     &:nth-child(2) {
       margin: 0 3rem;
+
+      @include bp($point_5) {
+        margin: 0;
+        padding: 1rem 0;
+      }
     }
+  }
+}
+
+.brand-link {
+  @include bp($point_2) {
+    max-width: 15rem;
   }
 }

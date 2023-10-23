@@ -25,6 +25,11 @@
     font-family: $font_2;
     transition: all .3s ease;
     @include flex-center;
+
+    @include bp($point_2) {
+      padding: 1.5rem 2rem;
+      font-size: 1.6rem;
+    }
   }
   
   &.transparent {
@@ -38,6 +43,12 @@
     button, input[type="submit"], a {
       background-color: transparent;
       line-height: 2.2rem;
+      @include bp($point_2) {
+        padding: 1.5rem 2rem;
+        font-size: 1.6rem;
+        // line-height: 1.8rem;
+        max-height: 5rem;
+      }
     }
     
     &:hover {
@@ -64,11 +75,24 @@
 
 .breadcrumb {
   padding: 2rem 0 4rem 0;
+  position: relative;
+  z-index: 99;
+
+  @include bp($point_2) {
+    padding: 1rem 0 2rem 0
+  }
   ul {
     @include flex-start;
     flex-wrap: wrap;
     li {
       font-size: 1.8rem;
+      @include bp($point_2) {
+        font-size: 1.6rem;
+      }
+
+      @include bp($point_5) {
+        font-size: 1.4rem;
+      }
       a {
         opacity: .5;
         &:after {
@@ -83,5 +107,26 @@
   }
 }
 
+
+.global-pagination {
+  display: none;
+
+  .swiper-pagination-bullet {
+    background-color: $orange;
+  }
+  @include bp($point_5) {
+    @include flex-center;
+    // bottom: -8rem!important;
+    width: 100%!important;
+  }
+}
+
+.adv-slider, .gallery-slider, .productSingle_gallery   {
+  .swiper-wrapper {
+    @include bp($point_5) {
+      padding-bottom: 4rem;
+    }
+  }
+}
 
 
